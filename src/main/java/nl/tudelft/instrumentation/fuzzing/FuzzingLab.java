@@ -2,6 +2,7 @@ package nl.tudelft.instrumentation.fuzzing;
 
 import java.util.*;
 import java.util.Random;
+import java.io.*;
 
 /**
  * You should write your own solution using this class.
@@ -12,50 +13,70 @@ public class FuzzingLab {
         static int traceLength = 10;
         static boolean isFinished = false;
 
-        // All unique (line_nr:value) branches seen across all runs
-        static Set<String> allVisitedBranches = new HashSet<>();
+        // ── Configuration (pass via -Dfuzzing.X=Y on the java command line) ──────
+        static final String MODE       = System.getProperty("fuzzing.mode",     "random");
+        static final int    MUTATIONS  = Integer.parseInt(System.getProperty("fuzzing.mutations", "5"));
+        static final String OUTPUT_DIR = System.getProperty("fuzzing.output.dir", "fuzzing_results");
+        static final String PROBLEM_ID = System.getProperty("fuzzing.problem",  "unknown");
+        static final long   DURATION_MS = Long.parseLong(System.getProperty("fuzzing.duration", "300")) * 1000L;
 
-        // Branches seen in the current single trace execution
-        static Set<String> currentRunBranches = new HashSet<>();
+        // ── Branch tracking ───────────────────────────────────────────────────────
+        static Set<String> allVisitedBranches  = new HashSet<>();
+        static Set<String> currentRunBranches  = new HashSet<>();
+        static int         maxUniqueBranchesInRun = 0;
+        static List<String> bestTrace          = new ArrayList<>();
 
-        // Best single-trace result for reporting
-        static int maxUniqueBranchesInRun = 0;
-        static List<String> bestTrace = new ArrayList<>();
+        // Accumulated branch distance for the trace currently being executed.
+        // Reset to 0 at the start of each executeTrace() call.
+        static double currentRunDistance = 0.0;
 
-        // All unique error codes triggered across all runs (e.g. "error_5")
+        // ── Error tracking ────────────────────────────────────────────────────────
         static Set<String> triggeredErrors = new TreeSet<>();
 
-        static void initialize(String[] inputSymbols){
+        // ── Convergence data ──────────────────────────────────────────────────────
+        // Branch convergence: periodic snapshots of {elapsed_ms, unique_branch_count}
+        static List<long[]>   branchConvergence = new ArrayList<>();
+        // Error convergence: one entry per newly found error {elapsed_ms, error_code}
+        static List<Object[]> errorConvergence  = new ArrayList<>();
+
+        static long startTime         = 0;
+        static long lastBranchSample  = 0;
+        static final long BRANCH_SAMPLE_INTERVAL_MS = 5_000; // snapshot every 5 s
+
+        // ─────────────────────────────────────────────────────────────────────────
+
+        static void initialize(String[] inputSymbols) {
                 currentTrace = generateRandomTrace(inputSymbols);
         }
 
         /**
-         * Called every time an if-statement is reached during execution.
-         * Tracks the branch and computes branch distance (distance to flip the branch).
+         * Called by the instrumentation on every if-statement encountered.
+         * Tracks the branch and accumulates branch distance for the current trace.
          */
         static void encounteredNewBranch(MyVar condition, boolean value, int line_nr) {
-                String branchKey = line_nr + ":" + value;
-                currentRunBranches.add(branchKey);
-                allVisitedBranches.add(branchKey);
-
-                // Branch distance: how far are we from flipping this branch?
-                // (i.e., making the condition evaluate to !value)
-                double distance = branchDistance(condition, !value);
+                String key = line_nr + ":" + value;
+                currentRunBranches.add(key);
+                // Set.add() returns true only when the element was not already present.
+                // Only accumulate distance for branches not yet globally visited:
+                // summing over already-seen branches creates a fitness landscape where
+                // "re-do all the easy stuff" scores better than "reach something new",
+                // causing the hill climber to get stuck immediately.
+                boolean isNew = allVisitedBranches.add(key);
+                if (isNew) {
+                        currentRunDistance += branchDistance(condition, !value);
+                }
         }
 
-        /**
-         * Returns the normalized branch distance in [0,1] to make condition evaluate to target.
-         * Uses the formulas from the branch distance lecture slides.
-         */
+        // ── Branch distance computation ───────────────────────────────────────────
+
         static double branchDistance(MyVar condition, boolean target) {
                 if (condition == null) return 0.0;
                 switch (condition.type) {
                         case BOOL:
                                 return (condition.value == target) ? 0.0 : 1.0;
                         case UNARY:
-                                if ("!".equals(condition.operator)) {
+                                if ("!".equals(condition.operator))
                                         return branchDistance(condition.left, !target);
-                                }
                                 return 0.0;
                         case BINARY:
                                 return binaryBranchDistance(condition, target);
@@ -67,143 +88,244 @@ public class FuzzingLab {
         static double binaryBranchDistance(MyVar condition, boolean target) {
                 String op = condition.operator;
                 switch (op) {
-                        // Logical AND: p1 & p2 → true if both true, false if either false
-                        case "&&":
-                        case "&":
-                                if (target) return branchDistance(condition.left, true) + branchDistance(condition.right, true);
-                                else        return Math.min(branchDistance(condition.left, false), branchDistance(condition.right, false));
-
-                        // Logical OR: p1 | p2 → true if either true, false if both false
-                        case "||":
-                        case "|":
-                                if (target) return Math.min(branchDistance(condition.left, true), branchDistance(condition.right, true));
-                                else        return branchDistance(condition.left, false) + branchDistance(condition.right, false);
-
-                        // XOR: true if exactly one is true
+                        case "&&": case "&":
+                                return target
+                                        ? branchDistance(condition.left, true)  + branchDistance(condition.right, true)
+                                        : Math.min(branchDistance(condition.left, false), branchDistance(condition.right, false));
+                        case "||": case "|":
+                                return target
+                                        ? Math.min(branchDistance(condition.left, true), branchDistance(condition.right, true))
+                                        : branchDistance(condition.left, false) + branchDistance(condition.right, false);
                         case "^":
-                                if (target) return Math.min(
-                                        branchDistance(condition.left, true)  + branchDistance(condition.right, false),
-                                        branchDistance(condition.left, false) + branchDistance(condition.right, true));
-                                else        return Math.min(
-                                        branchDistance(condition.left, true)  + branchDistance(condition.right, true),
-                                        branchDistance(condition.left, false) + branchDistance(condition.right, false));
-
-                        // Comparison operators on integers
+                                return target
+                                        ? Math.min(branchDistance(condition.left, true)  + branchDistance(condition.right, false),
+                                                   branchDistance(condition.left, false) + branchDistance(condition.right, true))
+                                        : Math.min(branchDistance(condition.left, true)  + branchDistance(condition.right, true),
+                                                   branchDistance(condition.left, false) + branchDistance(condition.right, false));
                         default:
                                 return comparisonDistance(condition, target);
                 }
         }
 
-        /**
-         * Computes normalized branch distance for a comparison operator.
-         * K=1 is used as a small constant to ensure distance > 0 when the boundary is tight.
-         */
         static double comparisonDistance(MyVar condition, boolean target) {
                 final int K = 1;
                 int left  = condition.left.int_value;
                 int right = condition.right.int_value;
                 double raw;
-
                 if (target) {
-                        // Distance to make condition TRUE
                         switch (condition.operator) {
                                 case "==": raw = (left == right) ? 0 : Math.abs(left - right); break;
                                 case "!=": raw = (left != right) ? 0 : 1;                      break;
-                                case "<":  raw = (left < right)  ? 0 : (left - right + K);     break;
+                                case "<":  raw = (left <  right) ? 0 : (left - right + K);     break;
                                 case "<=": raw = (left <= right) ? 0 : (left - right);         break;
-                                case ">":  raw = (left > right)  ? 0 : (right - left + K);     break;
+                                case ">":  raw = (left >  right) ? 0 : (right - left + K);     break;
                                 case ">=": raw = (left >= right) ? 0 : (right - left);         break;
                                 default:   return 0.0;
                         }
                 } else {
-                        // Distance to make condition FALSE (flip the operator)
                         switch (condition.operator) {
                                 case "==": raw = (left != right) ? 0 : 1;                      break;
                                 case "!=": raw = (left == right) ? 0 : Math.abs(left - right); break;
                                 case "<":  raw = (left >= right) ? 0 : (right - left);         break;
-                                case "<=": raw = (left > right)  ? 0 : (right - left + K);     break;
+                                case "<=": raw = (left >  right) ? 0 : (right - left + K);     break;
                                 case ">":  raw = (left <= right) ? 0 : (left - right);         break;
-                                case ">=": raw = (left < right)  ? 0 : (left - right + K);     break;
+                                case ">=": raw = (left <  right) ? 0 : (left - right + K);     break;
                                 default:   return 0.0;
                         }
                 }
                 return normalize(raw);
         }
 
-        /** Normalizes a raw distance value to [0, 1] using D = d/(d+1). */
-        static double normalize(double d) {
-                return d / (d + 1.0);
-        }
+        static double normalize(double d) { return d / (d + 1.0); }
+
+        // ── Mutation operators (hill climber) ─────────────────────────────────────
 
         /**
-         * Method for fuzzing new inputs for a program.
-         * @param inputSymbols the inputSymbols to fuzz from.
-         * @return a fuzzed sequence
+         * Produces one mutated copy of the given trace by randomly applying one of:
+         *   0 – change a random symbol
+         *   1 – insert a random symbol at a random position
+         *   2 – delete a random symbol
          */
-        static List<String> fuzz(String[] inputSymbols){
-                return generateRandomTrace(inputSymbols);
-        }
-
-        /**
-         * Generate a random trace from an array of symbols.
-         * @param symbols the symbols from which a trace should be generated from.
-         * @return a random trace that is generated from the given symbols.
-         */
-        static List<String> generateRandomTrace(String[] symbols) {
-                ArrayList<String> trace = new ArrayList<>();
-                for (int i = 0; i < traceLength; i++) {
-                        trace.add(symbols[r.nextInt(symbols.length)]);
+        static List<String> mutate(List<String> trace, String[] symbols) {
+                List<String> m = new ArrayList<>(trace);
+                switch (r.nextInt(3)) {
+                        case 0:
+                                if (!m.isEmpty())
+                                        m.set(r.nextInt(m.size()), symbols[r.nextInt(symbols.length)]);
+                                break;
+                        case 1:
+                                m.add(r.nextInt(m.size() + 1), symbols[r.nextInt(symbols.length)]);
+                                break;
+                        case 2:
+                                if (!m.isEmpty())
+                                        m.remove(r.nextInt(m.size()));
+                                break;
                 }
-                return trace;
+                return m;
         }
 
-        /** Updates bestTrace if the current run covered more unique branches than any previous run. */
-        static void updateBestTrace(List<String> trace) {
+        // ── Trace execution helper ────────────────────────────────────────────────
+
+        /**
+         * Resets per-run state, executes the trace through the instrumented problem,
+         * updates convergence snapshots, and returns the total branch distance sum.
+         */
+        static double executeTrace(List<String> trace) {
+                currentRunBranches  = new HashSet<>();
+                currentRunDistance  = 0.0;
+                DistanceTracker.runNextFuzzedSequence(trace.toArray(new String[0]));
+
+                // Update best-trace record
                 if (currentRunBranches.size() > maxUniqueBranchesInRun) {
                         maxUniqueBranchesInRun = currentRunBranches.size();
                         bestTrace = new ArrayList<>(trace);
                 }
+
+                // Periodic branch-count snapshot for convergence graph
+                long now = System.currentTimeMillis();
+                if (now - lastBranchSample >= BRANCH_SAMPLE_INTERVAL_MS) {
+                        branchConvergence.add(new long[]{now - startTime, allVisitedBranches.size()});
+                        lastBranchSample = now;
+                }
+
+                return currentRunDistance;
         }
+
+        static List<String> generateRandomTrace(String[] symbols) {
+                ArrayList<String> trace = new ArrayList<>();
+                for (int i = 0; i < traceLength; i++)
+                        trace.add(symbols[r.nextInt(symbols.length)]);
+                return trace;
+        }
+
+        // ── Main loop ─────────────────────────────────────────────────────────────
 
         static void run() {
                 initialize(DistanceTracker.inputSymbols);
+                startTime        = System.currentTimeMillis();
+                lastBranchSample = startTime;
+                long endTime     = startTime + DURATION_MS;
 
-                long endTime = System.currentTimeMillis() + 5 * 60 * 1000L; // 5 minutes
+                System.out.println("Mode: " + MODE + " | Problem: " + PROBLEM_ID
+                        + " | Duration: " + (DURATION_MS / 1000) + "s"
+                        + " | Mutations per step: " + MUTATIONS);
 
-                // Initial run
-                currentRunBranches = new HashSet<>();
-                DistanceTracker.runNextFuzzedSequence(currentTrace.toArray(new String[0]));
-                updateBestTrace(currentTrace);
+                if ("smart".equals(MODE))
+                        runHillClimber(endTime);
+                else
+                        runRandom(endTime);
+
+                // Final branch snapshot
+                branchConvergence.add(new long[]{System.currentTimeMillis() - startTime,
+                        allVisitedBranches.size()});
+
+                printResults();
+                writeConvergenceCSVs();
+                isFinished = true;
+        }
+
+        static void runRandom(long endTime) {
+                executeTrace(currentTrace);
+                while (!isFinished && System.currentTimeMillis() < endTime)
+                        executeTrace(generateRandomTrace(DistanceTracker.inputSymbols));
+        }
+
+        /**
+         * Hill-climber (Task 2):
+         *  1. Execute the current best trace → get its branch-distance sum.
+         *  2. Try MUTATIONS random mutations; execute each.
+         *  3. If any mutation lowers the sum, adopt it as the new current best.
+         *  4. Otherwise restart from a fresh random trace.
+         */
+        /**
+         * Hill-climber (Task 2):
+         *  1. Execute the current best trace → fitness = sum of distances for GLOBALLY NEW branches only.
+         *  2. Try MUTATIONS random mutations; execute each.
+         *  3. If any mutation lowers the fitness, adopt it as the new current best.
+         *  4. If none improves, restart from a fresh random trace (no extra execution —
+         *     the restart trace is evaluated as the first mutation of the next step).
+         *
+         * Fitness counts only unseen branches so the climber is always pulled toward
+         * new program regions rather than re-optimising already-covered paths.
+         */
+        static void runHillClimber(long endTime) {
+                String[] symbols  = DistanceTracker.inputSymbols;
+                List<String> best = new ArrayList<>(currentTrace);
+                double bestDist   = executeTrace(best);
 
                 while (!isFinished && System.currentTimeMillis() < endTime) {
-                        List<String> trace = fuzz(DistanceTracker.inputSymbols);
-                        currentTrace = trace;
-                        currentRunBranches = new HashSet<>();
-                        DistanceTracker.runNextFuzzedSequence(trace.toArray(new String[0]));
-                        updateBestTrace(trace);
-                }
+                        List<String> bestMutation = null;
+                        double       bestMutDist  = bestDist;
 
+                        for (int i = 0; i < MUTATIONS; i++) {
+                                List<String> candidate = mutate(best, symbols);
+                                double dist = executeTrace(candidate);
+                                if (dist < bestMutDist) {
+                                        bestMutDist  = dist;
+                                        bestMutation = candidate;
+                                }
+                        }
+
+                        if (bestMutation != null) {
+                                // Improvement found — move to the better trace
+                                best     = bestMutation;
+                                bestDist = bestMutDist;
+                        } else {
+                                // Local minimum (all reachable new branches already found from
+                                // this neighbourhood) — restart without an extra execution cost.
+                                best     = generateRandomTrace(symbols);
+                                bestDist = Double.MAX_VALUE;
+                        }
+                }
+        }
+
+        // ── Output, error tracking & convergence ──────────────────────────────────
+
+        public static void output(String out) {
+                // Errors surface as "Invalid input: error_N"
+                // (IllegalStateException from Errors.__VERIFIER_error caught in the problem's call()).
+                // All other automaton output symbols are suppressed.
+                int idx = out.indexOf("error_");
+                if (idx != -1) {
+                        String code = out.substring(idx);
+                        if (triggeredErrors.add(code)) {
+                                // First time we see this error — record for convergence graph
+                                errorConvergence.add(new Object[]{System.currentTimeMillis() - startTime, code});
+                        }
+                }
+        }
+
+        static void printResults() {
                 System.out.println("=== Fuzzing Results ===");
+                System.out.println("Mode: " + MODE);
                 System.out.println("Total unique branches visited: " + allVisitedBranches.size());
                 System.out.println("Max unique branches in a single trace: " + maxUniqueBranchesInRun);
                 System.out.println("Best trace: " + bestTrace);
                 System.out.println("Triggered errors (" + triggeredErrors.size() + "): " + triggeredErrors);
-
-                isFinished = true;
         }
 
         /**
-         * Method that is used for catching the output from standard out.
-         * You should write your own logic here.
-         * @param out the string that has been outputted in the standard out.
+         * Writes two CSV files to OUTPUT_DIR for later plotting:
+         *   problem{N}_{mode}_branches.csv  – branch coverage over time
+         *   problem{N}_{mode}_errors.csv    – each error code with the time it was first triggered
          */
-        public static void output(String out){
-                // Errors arrive as "Invalid input: error_N" (IllegalStateException
-                // from Errors.__VERIFIER_error caught in the instrumented call()).
-                // Everything else is a normal automaton output symbol — suppress it.
-                int idx = out.indexOf("error_");
-                if (idx != -1) {
-                        triggeredErrors.add(out.substring(idx));
+        static void writeConvergenceCSVs() {
+                new File(OUTPUT_DIR).mkdirs();
+                String base = OUTPUT_DIR + "/problem" + PROBLEM_ID + "_" + MODE;
+                try {
+                        try (PrintWriter pw = new PrintWriter(new FileWriter(base + "_branches.csv"))) {
+                                pw.println("elapsed_seconds,unique_branches");
+                                for (long[] p : branchConvergence)
+                                        pw.printf("%.1f,%d%n", p[0] / 1000.0, p[1]);
+                        }
+                        try (PrintWriter pw = new PrintWriter(new FileWriter(base + "_errors.csv"))) {
+                                pw.println("elapsed_seconds,error_code");
+                                for (Object[] e : errorConvergence)
+                                        pw.printf("%.1f,%s%n", ((Long) e[0]) / 1000.0, e[1]);
+                        }
+                        System.out.println("Convergence CSVs: " + base + "_*.csv");
+                } catch (IOException e) {
+                        System.err.println("Warning: could not write convergence CSVs: " + e.getMessage());
                 }
         }
 }
