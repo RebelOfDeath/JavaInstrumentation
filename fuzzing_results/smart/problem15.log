@@ -1,0 +1,8 @@
+Mode: smart | Problem: 15 | Duration: 300s | Mutations per step: 5
+=== Fuzzing Results ===
+Mode: smart
+Total unique branches visited: 1836
+Max unique branches in a single trace: 254
+Best trace: [D, N, L, G, L, I, J, I, K, G, D, F, M, O, B]
+Triggered errors (21): [error_15, error_16, error_20, error_21, error_25, error_31, error_33, error_34, error_35, error_38, error_44, error_49, error_54, error_60, error_7, error_71, error_76, error_78, error_9, error_90, error_94]
+Convergence CSVs: /home/str/JavaInstrumentation/fuzzing_results/smart/problem15_smart_*.csv
