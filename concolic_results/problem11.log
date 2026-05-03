@@ -1,0 +1,8 @@
+Mode: concolic | Problem: 11 | Duration: 300s
+=== Fuzzing Results ===
+Mode: concolic
+Total unique branches visited: 306
+Max unique branches in a single trace: 129
+Best trace: [E, E, F, C, E, C, E, A, A, D]
+Triggered errors (18): [error_0, error_13, error_24, error_26, error_39, error_42, error_48, error_52, error_60, error_62, error_74, error_75, error_82, error_9, error_91, error_93, error_94, error_95]
+Convergence CSVs: /home/str/JavaInstrumentation/concolic_results/problem11_concolic_*.csv
