@@ -1,0 +1,34 @@
+=== Patching EA started for Problem1 ===
+  Population: 30 | Generations: 1000 | Mutation: 0.0
+  Operators: 339 | Tests: 1109
+  Initial best fitness: 0.9919
+  Baseline (buggy) fitness: 0.9919
+  Gen 10 | Best: 0.9919 | 20s
+  Gen 20 | Best: 0.9919 | 33s
+  Gen 30 | Best: 0.9919 | 45s
+  Gen 40 | Best: 0.9919 | 58s
+  Gen 50 | Best: 0.9919 | 69s
+  Gen 60 | Best: 0.9919 | 81s
+  Gen 70 | Best: 0.9919 | 94s
+  Gen 80 | Best: 0.9919 | 106s
+  Gen 90 | Best: 0.9919 | 118s
+  Gen 100 | Best: 0.9919 | 130s
+  Gen 110 | Best: 0.9919 | 142s
+  Gen 120 | Best: 0.9919 | 154s
+  Gen 130 | Best: 0.9919 | 166s
+  Gen 140 | Best: 0.9919 | 179s
+  Gen 150 | Best: 0.9919 | 191s
+  Gen 160 | Best: 0.9919 | 203s
+  Gen 170 | Best: 0.9919 | 216s
+  Gen 180 | Best: 0.9919 | 228s
+  Gen 190 | Best: 0.9919 | 240s
+  Gen 200 | Best: 0.9919 | 252s
+  Gen 210 | Best: 0.9919 | 264s
+  Gen 220 | Best: 0.9919 | 277s
+  Gen 230 | Best: 0.9919 | 290s
+  Time limit reached.
+
+=== EA finished for Problem1 ===
+  Best fitness: 0.9918845807033363
+  Generations:  239
+  Total operators patched: 0
