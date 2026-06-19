@@ -1,0 +1,8 @@
+Mode: random | Problem: 12 | Duration: 300s | Mutations per step: 5
+=== Fuzzing Results ===
+Mode: random
+Total unique branches visited: 225
+Max unique branches in a single trace: 173
+Best trace: [E, G, E, C, F, C, A, F, J, G]
+Triggered errors (0): []
+Convergence CSVs: /home/str/JavaInstrumentation/fuzzing_results/random/problem12_random_*.csv
