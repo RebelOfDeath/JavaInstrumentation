@@ -1,0 +1,47 @@
+=== Patching EA started for Problem4 ===
+  Population: 30 | Generations: 1000 | Mutation: 0.3
+  Operators: 1143 | Tests: 2054
+  Initial best fitness: 0.9640
+  Baseline (buggy) fitness: 0.9640
+  Gen 10 | Best: 0.9640 | 36s
+  Gen 20 | Best: 0.9654 | 62s
+  Gen 30 | Best: 0.9727 | 87s
+  Gen 40 | Best: 0.9732 | 110s
+  Gen 50 | Best: 0.9912 | 133s
+  Gen 60 | Best: 0.9912 | 156s
+  Gen 70 | Best: 0.9922 | 179s
+  Gen 80 | Best: 0.9922 | 201s
+  Gen 90 | Best: 0.9922 | 223s
+  Gen 100 | Best: 0.9922 | 245s
+  Gen 110 | Best: 0.9922 | 267s
+  Gen 120 | Best: 0.9927 | 290s
+  Time limit reached.
+
+=== EA finished for Problem4 ===
+  Best fitness: 0.9936708860759493
+  Generations:  126
+  Patch: operator[55] == -> >=
+  Patch: operator[109] != -> ==
+  Patch: operator[148] != -> >=
+  Patch: operator[222] != -> ==
+  Patch: operator[291] == -> <=
+  Patch: operator[326] == -> <=
+  Patch: operator[328] == -> <=
+  Patch: operator[335] == -> >=
+  Patch: operator[360] != -> >=
+  Patch: operator[376] != -> <=
+  Patch: operator[398] == -> >=
+  Patch: operator[599] == -> >=
+  Patch: operator[606] == -> >
+  Patch: operator[662] == -> <=
+  Patch: operator[684] != -> ==
+  Patch: operator[686] != -> >=
+  Patch: operator[774] == -> >=
+  Patch: operator[887] != -> <=
+  Patch: operator[917] != -> >=
+  Patch: operator[928] == -> <=
+  Patch: operator[966] == -> >=
+  Patch: operator[996] == -> <=
+  Patch: operator[1024] == -> <=
+  Patch: operator[1090] == -> >=
+  Total operators patched: 24

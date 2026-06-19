@@ -1,0 +1,14 @@
+=== Patching EA started for Problem7 ===
+  Population: 30 | Generations: 1000 | Mutation: 0.6
+  Operators: 3753 | Tests: 5578
+  Initial best fitness: 0.9842
+  Baseline (buggy) fitness: 0.9842
+  Gen 10 | Best: 0.9842 | 112s
+  Gen 20 | Best: 0.9842 | 199s
+  Gen 30 | Best: 0.9842 | 284s
+  Time limit reached.
+
+=== EA finished for Problem7 ===
+  Best fitness: 0.9842237361061312
+  Generations:  33
+  Total operators patched: 0

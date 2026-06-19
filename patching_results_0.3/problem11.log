@@ -1,0 +1,41 @@
+=== Patching EA started for Problem11 ===
+  Population: 30 | Generations: 1000 | Mutation: 0.3
+  Operators: 353 | Tests: 371
+  Initial best fitness: 0.8518
+  Baseline (buggy) fitness: 0.8410
+  Gen 10 | Best: 0.8733 | 26s
+  Gen 20 | Best: 0.8760 | 43s
+  Gen 30 | Best: 0.8895 | 59s
+  Gen 40 | Best: 0.8895 | 76s
+  Gen 50 | Best: 0.8895 | 91s
+  Gen 60 | Best: 1.0000 | 106s
+  Perfect fitness at generation 61
+
+=== EA finished for Problem11 ===
+  Best fitness: 1.0
+  Generations:  61
+  Patch: operator[51] == -> !=
+  Patch: operator[52] == -> <=
+  Patch: operator[65] == -> <=
+  Patch: operator[77] != -> >
+  Patch: operator[84] == -> >=
+  Patch: operator[100] == -> !=
+  Patch: operator[111] == -> >=
+  Patch: operator[129] == -> >=
+  Patch: operator[132] == -> <=
+  Patch: operator[148] == -> >=
+  Patch: operator[152] == -> <
+  Patch: operator[174] == -> <
+  Patch: operator[176] == -> <
+  Patch: operator[203] == -> !=
+  Patch: operator[205] == -> <=
+  Patch: operator[210] == -> >
+  Patch: operator[214] == -> <=
+  Patch: operator[223] != -> >=
+  Patch: operator[263] == -> >=
+  Patch: operator[269] == -> >=
+  Patch: operator[273] == -> <=
+  Patch: operator[330] == -> <=
+  Patch: operator[340] != -> <=
+  Patch: operator[350] != -> >=
+  Total operators patched: 24
