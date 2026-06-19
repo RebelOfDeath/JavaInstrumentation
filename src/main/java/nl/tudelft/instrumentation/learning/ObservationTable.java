@@ -53,7 +53,25 @@ public class ObservationTable implements DistinguishingSequenceGenerator, Access
      *         with something usefull to extend the observation table with.
      */
     public Optional<Word<String>> checkForClosed() {
-        // TODO implement the check for closedness of the observation table.
+        // For each row in S·A, check if there exists a row in S with the same observations.
+        // If not, the table is not closed: return that S·A element to promote to S.
+        for (Word<String> s : S) {
+            for (String a : inputSymbols) {
+                Word<String> sa = s.append(a);
+                ArrayList<String> saRow = table.get(sa);
+                boolean found = false;
+                for (Word<String> s2 : S) {
+                    ArrayList<String> s2Row = table.get(s2);
+                    if (saRow.equals(s2Row)) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    return Optional.of(sa);
+                }
+            }
+        }
         return Optional.empty();
     }
 
@@ -66,7 +84,36 @@ public class ObservationTable implements DistinguishingSequenceGenerator, Access
      *         with something usefull to extend the observation table with.
      */
     public Optional<Word<String>> checkForConsistent() {
-        // TODO implement the consistency check.
+        // For all s1, s2 in S where row(s1) == row(s2), check that for all a in inputSymbols:
+        // row(s1·a) == row(s2·a). If not, find the distinguishing suffix e in E such that
+        // the outputs for s1·a·e and s2·a·e differ, and return a·e to add to E.
+        for (int i = 0; i < S.size(); i++) {
+            for (int j = i + 1; j < S.size(); j++) {
+                Word<String> s1 = S.get(i);
+                Word<String> s2 = S.get(j);
+                ArrayList<String> row1 = table.get(s1);
+                ArrayList<String> row2 = table.get(s2);
+                if (!row1.equals(row2)) {
+                    continue;
+                }
+                // Rows are equal, so for each input symbol check that s1·a and s2·a also have equal rows
+                for (String a : inputSymbols) {
+                    Word<String> s1a = s1.append(a);
+                    Word<String> s2a = s2.append(a);
+                    ArrayList<String> row1a = table.get(s1a);
+                    ArrayList<String> row2a = table.get(s2a);
+                    if (!row1a.equals(row2a)) {
+                        // Find the distinguishing suffix
+                        for (int k = 0; k < E.size(); k++) {
+                            if (!row1a.get(k).equals(row2a.get(k))) {
+                                Word<String> ae = new Word<>(a).append(E.get(k));
+                                return Optional.of(ae);
+                            }
+                        }
+                    }
+                }
+            }
+        }
         return Optional.empty();
     }
 
