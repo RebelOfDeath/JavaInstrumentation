@@ -8,7 +8,17 @@ import java.io.*;
  * You should write your own solution using this class.
  */
 public class FuzzingLab {
-        static Random r = new Random();
+        static final long   SEED;
+        static Random r;
+        static {
+                String seedProp = System.getProperty("fuzzing.seed");
+                if (seedProp != null) {
+                        SEED = Long.parseLong(seedProp);
+                } else {
+                        SEED = new Random().nextLong();
+                }
+                r = new Random(SEED);
+        }
         static List<String> currentTrace;
         static int traceLength = 10;
         static boolean isFinished = false;
@@ -32,6 +42,16 @@ public class FuzzingLab {
 
         // ── Error tracking ────────────────────────────────────────────────────────
         static Set<String> triggeredErrors = new TreeSet<>();
+
+        // ── Seed pool for improved hill climber ─────────────────────────────────
+        static final int SEED_POOL_SIZE = 20;
+        static final int MIN_TRACE_LEN  = 5;
+        static final int MAX_TRACE_LEN  = 20;
+        static final int MAX_TRACE_LEN_MUTATED = 30;
+        static final double RANDOM_EXPLORATION_RATIO = 0.20;
+        static List<List<String>> seedPool = new ArrayList<>();
+        // Parallel list: number of unique branches each seed trace covered on its own
+        static List<Integer> seedPoolScores = new ArrayList<>();
 
         // ── Convergence data ──────────────────────────────────────────────────────
         // Branch convergence: periodic snapshots of {elapsed_ms, unique_branch_count}
@@ -208,10 +228,13 @@ public class FuzzingLab {
 
                 System.out.println("Mode: " + MODE + " | Problem: " + PROBLEM_ID
                         + " | Duration: " + (DURATION_MS / 1000) + "s"
-                        + " | Mutations per step: " + MUTATIONS);
+                        + " | Mutations per step: " + MUTATIONS
+                        + " | Seed: " + SEED);
 
                 if ("smart".equals(MODE))
                         runHillClimber(endTime);
+                else if ("improved".equals(MODE))
+                        runImproved(endTime);
                 else
                         runRandom(endTime);
 
@@ -274,6 +297,151 @@ public class FuzzingLab {
                                 // Local minimum (all reachable new branches already found from
                                 // this neighbourhood) — restart without an extra execution cost.
                                 best     = generateRandomTrace(symbols);
+                                bestDist = Double.MAX_VALUE;
+                        }
+                }
+        }
+
+        // ── Improved hill climber helpers ────────────────────────────────────────
+
+        /**
+         * Generates a random trace with length uniformly chosen between
+         * MIN_TRACE_LEN and MAX_TRACE_LEN (inclusive).
+         */
+        static List<String> generateRandomTraceVariable(String[] symbols) {
+                int len = MIN_TRACE_LEN + r.nextInt(MAX_TRACE_LEN - MIN_TRACE_LEN + 1);
+                ArrayList<String> trace = new ArrayList<>();
+                for (int i = 0; i < len; i++)
+                        trace.add(symbols[r.nextInt(symbols.length)]);
+                return trace;
+        }
+
+        /**
+         * Adds a trace to the seed pool, scored by the number of unique branches
+         * it covered in its run.  The pool is kept at most SEED_POOL_SIZE entries;
+         * the weakest entry is evicted when the pool is full.
+         */
+        static void offerToSeedPool(List<String> trace, int branchCount) {
+                if (seedPool.size() < SEED_POOL_SIZE) {
+                        seedPool.add(new ArrayList<>(trace));
+                        seedPoolScores.add(branchCount);
+                } else {
+                        // Find the index of the weakest seed
+                        int worstIdx = 0;
+                        int worstScore = seedPoolScores.get(0);
+                        for (int i = 1; i < seedPoolScores.size(); i++) {
+                                if (seedPoolScores.get(i) < worstScore) {
+                                        worstScore = seedPoolScores.get(i);
+                                        worstIdx = i;
+                                }
+                        }
+                        if (branchCount > worstScore) {
+                                seedPool.set(worstIdx, new ArrayList<>(trace));
+                                seedPoolScores.set(worstIdx, branchCount);
+                        }
+                }
+        }
+
+        /**
+         * Picks a random trace from the seed pool.  Returns null if the pool is empty.
+         */
+        static List<String> pickFromSeedPool() {
+                if (seedPool.isEmpty()) return null;
+                return new ArrayList<>(seedPool.get(r.nextInt(seedPool.size())));
+        }
+
+        /**
+         * Splice mutation: takes two traces from the seed pool and combines them
+         * by taking a prefix of one and a suffix of the other.
+         * Falls back to a regular mutate if the pool has fewer than 2 entries.
+         */
+        static List<String> spliceMutation(String[] symbols) {
+                if (seedPool.size() < 2) return null;
+                List<String> a = seedPool.get(r.nextInt(seedPool.size()));
+                List<String> b = seedPool.get(r.nextInt(seedPool.size()));
+                int cutA = a.isEmpty() ? 0 : r.nextInt(a.size());
+                int cutB = b.isEmpty() ? 0 : r.nextInt(b.size());
+                List<String> spliced = new ArrayList<>(a.subList(0, cutA));
+                spliced.addAll(b.subList(cutB, b.size()));
+                // Enforce max length
+                if (spliced.size() > MAX_TRACE_LEN_MUTATED) {
+                        spliced = new ArrayList<>(spliced.subList(0, MAX_TRACE_LEN_MUTATED));
+                }
+                if (spliced.isEmpty()) {
+                        spliced.add(symbols[r.nextInt(symbols.length)]);
+                }
+                return spliced;
+        }
+
+        /**
+         * Improved hill climber (Task 3):
+         *  - Maintains a seed pool of the top-K best traces by individual branch coverage.
+         *  - Uses adaptive trace lengths (5–20 initially, mutations can grow up to 30).
+         *  - 20% of the time does pure random exploration, 80% does hill climbing.
+         *  - On restart after local minimum, picks from the seed pool and mutates
+         *    instead of generating a fully random trace.
+         *  - Uses 10 mutations per step (configurable via MUTATIONS property).
+         *  - Includes a splice mutation that combines two seed pool traces.
+         */
+        static void runImproved(long endTime) {
+                String[] symbols = DistanceTracker.inputSymbols;
+
+                // Start with the initial trace
+                List<String> best = new ArrayList<>(currentTrace);
+                double bestDist   = executeTrace(best);
+                offerToSeedPool(best, currentRunBranches.size());
+
+                while (!isFinished && System.currentTimeMillis() < endTime) {
+
+                        // ── 20% random exploration phase ──────────────────────────
+                        if (r.nextDouble() < RANDOM_EXPLORATION_RATIO) {
+                                List<String> randomTrace = generateRandomTraceVariable(symbols);
+                                executeTrace(randomTrace);
+                                offerToSeedPool(randomTrace, currentRunBranches.size());
+                                continue;
+                        }
+
+                        // ── 80% hill climbing phase ───────────────────────────────
+                        List<String> bestMutation = null;
+                        double       bestMutDist  = bestDist;
+
+                        for (int i = 0; i < MUTATIONS; i++) {
+                                List<String> candidate;
+
+                                // 1-in-MUTATIONS chance: try a splice mutation instead of a point mutation
+                                if (i == 0 && seedPool.size() >= 2) {
+                                        candidate = spliceMutation(symbols);
+                                } else {
+                                        candidate = mutate(best, symbols);
+                                }
+
+                                // Enforce max trace length for mutations
+                                if (candidate.size() > MAX_TRACE_LEN_MUTATED) {
+                                        candidate = new ArrayList<>(candidate.subList(0, MAX_TRACE_LEN_MUTATED));
+                                }
+
+                                double dist = executeTrace(candidate);
+                                offerToSeedPool(candidate, currentRunBranches.size());
+
+                                if (dist < bestMutDist) {
+                                        bestMutDist  = dist;
+                                        bestMutation = candidate;
+                                }
+                        }
+
+                        if (bestMutation != null) {
+                                // Improvement found — adopt the better trace
+                                best     = bestMutation;
+                                bestDist = bestMutDist;
+                        } else {
+                                // Local minimum — restart from the seed pool (or random if pool is empty)
+                                List<String> seed = pickFromSeedPool();
+                                if (seed != null) {
+                                        // Mutate a seed pool entry to explore its neighbourhood
+                                        best = mutate(seed, symbols);
+                                } else {
+                                        best = generateRandomTraceVariable(symbols);
+                                }
                                 bestDist = Double.MAX_VALUE;
                         }
                 }

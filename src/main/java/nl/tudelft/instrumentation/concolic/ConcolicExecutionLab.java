@@ -12,7 +12,30 @@ import com.microsoft.z3.*;
  */
 public class ConcolicExecutionLab {
 
-    static Random r = new Random();
+    static long seed;
+    static Random r;
+    static String outputDir;
+    static long durationMs;
+
+    static {
+        String seedProp = System.getProperty("concolic.seed");
+        if (seedProp != null) {
+            seed = Long.parseLong(seedProp);
+        } else {
+            seed = new Random().nextLong();
+            System.out.println("Generated random seed: " + seed);
+        }
+        r = new Random(seed);
+
+        outputDir = System.getProperty("concolic.output.dir", "concolic_results");
+
+        try {
+            durationMs = Long.parseLong(System.getProperty("concolic.duration", "300")) * 1000;
+        } catch (NumberFormatException e) {
+            durationMs = 300 * 1000;
+        }
+    }
+
     static Boolean isFinished = false;
     static List<String> currentTrace;
     static int traceLength = 10;
@@ -242,11 +265,14 @@ public class ConcolicExecutionLab {
         lastSampleTime = startTime;
         problemNumber = detectProblemNumber();
 
-        long timeLimitMs = 5 * 60 * 1000;
+        long timeLimitMs = durationMs;
         int maxIterations = 10000;
         int iteration = 0;
 
-        System.out.println("Mode: concolic | Problem: " + problemNumber + " | Duration: 300s");
+        System.out.println("Mode: concolic | Problem: " + problemNumber
+                + " | Duration: " + (durationMs / 1000) + "s"
+                + " | Seed: " + seed
+                + " | Output: " + outputDir);
 
         while(!isFinished && iteration < maxIterations) {
             long now = System.currentTimeMillis();
@@ -292,7 +318,7 @@ public class ConcolicExecutionLab {
         System.out.println("Max unique branches in a single trace: " + maxUniqueBranches);
         System.out.println("Best trace: " + bestTrace);
         System.out.println("Triggered errors (" + uniqueErrors.size() + "): " + sortedErrors);
-        System.out.println("Convergence CSVs: /home/str/JavaInstrumentation/concolic_results/problem" + problemNumber + "_concolic_*.csv");
+        System.out.println("Convergence CSVs: " + outputDir + "/problem" + problemNumber + "_concolic_*.csv");
 
         isFinished = true;
     }
@@ -309,7 +335,7 @@ public class ConcolicExecutionLab {
 
     static void writeConvergenceCSVs() {
         try {
-            String base = "/home/str/JavaInstrumentation/concolic_results";
+            String base = outputDir;
             new java.io.File(base).mkdirs();
 
             String prefix = base + "/problem" + problemNumber + "_concolic_";
