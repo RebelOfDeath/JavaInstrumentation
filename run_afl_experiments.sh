@@ -141,6 +141,9 @@ run_afl_problem() {
     # Extract errors from crashes
     local CSV="$RUN_DIR/problem${N}_afl_errors.csv"
     local LOG="$RUN_DIR/problem${N}.log"
+    if [ -d "$FINDINGS/default" ]; then
+        FINDINGS="$FINDINGS/default"
+    fi
     local CRASH_DIR="$FINDINGS/crashes"
 
     echo "elapsed_seconds,error_code" > "$CSV"

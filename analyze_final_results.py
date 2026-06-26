@@ -90,6 +90,13 @@ def parse_log_file(path):
                 result['errors'] = int(m.group(1))
                 codes = re.findall(r'error_\d+', m.group(2))
                 result['error_codes'] = set(codes)
+            
+            m_afl_err = re.search(r'Problem\d+:\s*(\d+)\s+unique errors found', line)
+            if m_afl_err:
+                result['errors'] = int(m_afl_err.group(1))
+            if line.startswith('Errors:'):
+                codes = re.findall(r'error_\d+', line)
+                result['error_codes'] = set(codes)
     return result
 
 
