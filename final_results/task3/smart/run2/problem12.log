@@ -1,0 +1,71 @@
+=== Patching EA started for Problem12 ===
+  Population: 30 | Generations: 1000 | Mutation: 0.4
+  Operators: 1110 | Tests: 641
+  Initial best fitness: 0.2668
+  Baseline (buggy) fitness: 0.2621
+  Gen 10 | Best: 0.4087 | 76s
+  Gen 20 | Best: 0.4103 | 133s
+  Gen 30 | Best: 0.4602 | 189s
+  Gen 40 | Best: 0.4914 | 245s
+  Gen 50 | Best: 0.5523 | 300s
+  Time limit reached.
+
+=== EA finished for Problem12 ===
+  Best fitness: 0.5522620904836193
+  Generations:  51
+  Patch: operator[29] == -> >
+  Patch: operator[78] >= -> !=
+  Patch: operator[111] == -> <=
+  Patch: operator[121] == -> >
+  Patch: operator[142] < -> >=
+  Patch: operator[198] >= -> ==
+  Patch: operator[256] == -> <
+  Patch: operator[258] <= -> ==
+  Patch: operator[262] == -> >
+  Patch: operator[269] == -> <=
+  Patch: operator[290] != -> >=
+  Patch: operator[293] == -> <=
+  Patch: operator[294] == -> <=
+  Patch: operator[355] >= -> ==
+  Patch: operator[367] < -> >=
+  Patch: operator[376] == -> <=
+  Patch: operator[381] >= -> <
+  Patch: operator[388] == -> <=
+  Patch: operator[479] >= -> !=
+  Patch: operator[515] == -> >=
+  Patch: operator[522] >= -> !=
+  Patch: operator[525] >= -> !=
+  Patch: operator[555] >= -> >
+  Patch: operator[580] >= -> <=
+  Patch: operator[591] == -> <=
+  Patch: operator[630] >= -> !=
+  Patch: operator[631] == -> >
+  Patch: operator[651] >= -> ==
+  Patch: operator[684] <= -> <
+  Patch: operator[691] <= -> >=
+  Patch: operator[702] <= -> !=
+  Patch: operator[721] <= -> >=
+  Patch: operator[722] <= -> !=
+  Patch: operator[745] <= -> <
+  Patch: operator[773] < -> >=
+  Patch: operator[788] < -> ==
+  Patch: operator[791] < -> >=
+  Patch: operator[832] > -> <=
+  Patch: operator[837] < -> !=
+  Patch: operator[838] >= -> >
+  Patch: operator[851] >= -> !=
+  Patch: operator[857] < -> <=
+  Patch: operator[866] == -> <=
+  Patch: operator[886] == -> !=
+  Patch: operator[936] == -> >=
+  Patch: operator[972] >= -> ==
+  Patch: operator[975] == -> <
+  Patch: operator[978] >= -> <=
+  Patch: operator[996] >= -> !=
+  Patch: operator[999] >= -> >
+  Patch: operator[1000] == -> <
+  Patch: operator[1013] >= -> >
+  Patch: operator[1035] <= -> <
+  Patch: operator[1039] == -> <=
+  Patch: operator[1083] >= -> >
+  Total operators patched: 55

@@ -1,0 +1,5 @@
+=== Patching EA started for Problem17 ===
+  Population: 30 | Generations: 1000 | Mutation: 0.4
+  Operators: 4043 | Tests: 11481
+  Initial best fitness: 0.9790
+  Baseline (buggy) fitness: 0.9790

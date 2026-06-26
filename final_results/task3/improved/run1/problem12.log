@@ -1,0 +1,64 @@
+=== Patching EA started for Problem12 ===
+  Population: 30 | Generations: 1000 | Mutation: 0.4
+  Operators: 1110 | Tests: 641
+  Initial best fitness: 0.4758
+  Baseline (buggy) fitness: 0.2621
+  Gen 10 | Best: 0.5367 | 80s
+  Gen 20 | Best: 0.5367 | 138s
+  Gen 30 | Best: 0.5523 | 193s
+  Gen 40 | Best: 0.5523 | 248s
+  Gen 50 | Best: 0.5523 | 302s
+  Time limit reached.
+
+=== EA finished for Problem12 ===
+  Best fitness: 0.5522620904836193
+  Generations:  51
+  Patch: operator[41] >= -> <
+  Patch: operator[60] < -> >
+  Patch: operator[72] == -> >=
+  Patch: operator[101] == -> <=
+  Patch: operator[107] == -> !=
+  Patch: operator[113] == -> <=
+  Patch: operator[117] == -> <
+  Patch: operator[131] == -> !=
+  Patch: operator[142] < -> >=
+  Patch: operator[146] == -> <
+  Patch: operator[156] == -> !=
+  Patch: operator[157] == -> >
+  Patch: operator[166] == -> <
+  Patch: operator[230] <= -> >=
+  Patch: operator[280] >= -> !=
+  Patch: operator[289] <= -> >=
+  Patch: operator[352] >= -> <=
+  Patch: operator[354] < -> <=
+  Patch: operator[360] < -> !=
+  Patch: operator[369] == -> <
+  Patch: operator[422] >= -> !=
+  Patch: operator[493] >= -> !=
+  Patch: operator[504] < -> !=
+  Patch: operator[560] == -> <=
+  Patch: operator[577] < -> <=
+  Patch: operator[606] < -> !=
+  Patch: operator[611] == -> <
+  Patch: operator[627] >= -> >
+  Patch: operator[644] == -> !=
+  Patch: operator[736] == -> <=
+  Patch: operator[750] <= -> !=
+  Patch: operator[761] < -> !=
+  Patch: operator[790] == -> <
+  Patch: operator[824] == -> !=
+  Patch: operator[825] < -> !=
+  Patch: operator[827] == -> >
+  Patch: operator[832] > -> !=
+  Patch: operator[873] < -> <=
+  Patch: operator[876] >= -> >
+  Patch: operator[877] == -> >=
+  Patch: operator[919] >= -> !=
+  Patch: operator[965] == -> >=
+  Patch: operator[966] < -> <=
+  Patch: operator[972] >= -> >
+  Patch: operator[998] < -> ==
+  Patch: operator[1000] == -> >=
+  Patch: operator[1055] == -> >
+  Patch: operator[1095] < -> ==
+  Total operators patched: 48

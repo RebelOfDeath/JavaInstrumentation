@@ -1,0 +1,27 @@
+=== Patching EA started for Problem13 ===
+  Population: 30 | Generations: 1000 | Mutation: 0.4
+  Operators: 1281 | Tests: 928
+  Initial best fitness: 0.7920
+  Baseline (buggy) fitness: 0.7920
+  Gen 10 | Best: 0.8017 | 114s
+  Gen 20 | Best: 0.8060 | 200s
+  Gen 30 | Best: 0.8976 | 284s
+  Time limit reached.
+
+=== EA finished for Problem13 ===
+  Best fitness: 0.8976293103448276
+  Generations:  33
+  Patch: operator[59] == -> >
+  Patch: operator[80] == -> <=
+  Patch: operator[100] == -> >
+  Patch: operator[213] == -> <=
+  Patch: operator[302] == -> <=
+  Patch: operator[391] <= -> <
+  Patch: operator[513] >= -> >
+  Patch: operator[517] < -> >
+  Patch: operator[540] > -> <
+  Patch: operator[701] >= -> >
+  Patch: operator[784] != -> >=
+  Patch: operator[1132] != -> ==
+  Patch: operator[1176] <= -> ==
+  Total operators patched: 13

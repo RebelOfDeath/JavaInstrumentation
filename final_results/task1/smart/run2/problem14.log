@@ -1,0 +1,14 @@
+=== Patching EA started for Problem14 ===
+  Population: 30 | Generations: 1000 | Mutation: 0.4
+  Operators: 1280 | Tests: 3246
+  Initial best fitness: 0.8943
+  Baseline (buggy) fitness: 0.8943
+  Time limit reached.
+
+=== EA finished for Problem14 ===
+  Best fitness: 0.8946395563770795
+  Generations:  5
+  Patch: operator[98] == -> >=
+  Patch: operator[714] != -> >=
+  Patch: operator[1036] == -> <=
+  Total operators patched: 3

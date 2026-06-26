@@ -1,0 +1,65 @@
+=== Patching EA started for Problem11 ===
+  Population: 30 | Generations: 1000 | Mutation: 0.4
+  Operators: 353 | Tests: 371
+  Initial best fitness: 0.8410
+  Baseline (buggy) fitness: 0.8410
+  Gen 10 | Best: 0.9245 | 33s
+  Gen 20 | Best: 0.9245 | 59s
+  Gen 30 | Best: 0.9272 | 84s
+  Gen 40 | Best: 0.9272 | 111s
+  Gen 50 | Best: 0.9407 | 138s
+  Gen 60 | Best: 0.9407 | 164s
+  Gen 65 | Best: 1.0000 | 177s
+  Perfect fitness at generation 66
+
+=== EA finished for Problem11 ===
+  Best fitness: 1.0
+  Generations:  66
+  Patch: operator[3] == -> <
+  Patch: operator[30] == -> >
+  Patch: operator[34] == -> <=
+  Patch: operator[41] == -> <
+  Patch: operator[50] == -> >=
+  Patch: operator[63] == -> <=
+  Patch: operator[65] == -> <=
+  Patch: operator[70] == -> >
+  Patch: operator[80] == -> <=
+  Patch: operator[83] == -> <=
+  Patch: operator[105] == -> <=
+  Patch: operator[116] == -> <
+  Patch: operator[119] == -> <
+  Patch: operator[128] == -> !=
+  Patch: operator[136] == -> !=
+  Patch: operator[141] == -> >=
+  Patch: operator[142] == -> >=
+  Patch: operator[149] == -> <
+  Patch: operator[156] == -> <
+  Patch: operator[159] == -> >
+  Patch: operator[161] == -> !=
+  Patch: operator[163] == -> >=
+  Patch: operator[166] == -> <
+  Patch: operator[169] == -> >=
+  Patch: operator[178] == -> <=
+  Patch: operator[212] == -> !=
+  Patch: operator[213] == -> !=
+  Patch: operator[215] == -> !=
+  Patch: operator[223] != -> ==
+  Patch: operator[246] == -> >=
+  Patch: operator[264] == -> >=
+  Patch: operator[266] == -> >=
+  Patch: operator[290] == -> >=
+  Patch: operator[294] == -> >=
+  Patch: operator[302] == -> >=
+  Patch: operator[308] == -> >=
+  Patch: operator[311] == -> >=
+  Patch: operator[315] == -> >=
+  Patch: operator[321] == -> >=
+  Patch: operator[325] == -> <=
+  Patch: operator[328] == -> <=
+  Patch: operator[333] == -> <=
+  Patch: operator[340] != -> >=
+  Patch: operator[341] == -> <=
+  Patch: operator[345] == -> <=
+  Patch: operator[346] == -> <=
+  Patch: operator[350] != -> <=
+  Total operators patched: 47
