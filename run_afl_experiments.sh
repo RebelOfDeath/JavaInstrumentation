@@ -7,8 +7,9 @@
 # Results layout:
 #   final_results/task2/afl/run{S}/
 #     findings_{N}/        – AFL output directory
-#     problem{N}_afl_errors.csv – error convergence CSV
-#     problem{N}.log       – summary log
+#     problem{N}_afl_errors.csv   – error convergence CSV
+#     problem{N}_afl_branches.csv – branch convergence CSV (from AFL plot_data)
+#     problem{N}.log               – summary log (includes "Total unique branches visited:")
 #
 # Usage:
 #   ./run_afl_experiments.sh [--duration 300] [--runs 5] [--compile] [--afl-dir PATH]
@@ -136,10 +137,11 @@ run_afl_problem() {
         "$BINS_DIR/Problem$N" \
         > /dev/null 2>&1 || true
 
-    echo "      Problem$N: extracting errors..."
+    echo "      Problem$N: extracting errors and branch coverage..."
 
     # Extract errors from crashes
     local CSV="$RUN_DIR/problem${N}_afl_errors.csv"
+    local BRANCH_CSV="$RUN_DIR/problem${N}_afl_branches.csv"
     local LOG="$RUN_DIR/problem${N}.log"
     if [ -d "$FINDINGS/default" ]; then
         FINDINGS="$FINDINGS/default"
@@ -148,11 +150,11 @@ run_afl_problem() {
 
     echo "elapsed_seconds,error_code" > "$CSV"
 
-    if [ -d "$CRASH_DIR" ]; then
-        # Get AFL start time from fuzzer_stats
-        local START_TIME=$(grep "start_time" "$FINDINGS/fuzzer_stats" 2>/dev/null | awk '{print $3}')
-        START_TIME=${START_TIME:-$(date +%s)}
+    # Get AFL start time from fuzzer_stats (needed for both errors and branches)
+    local START_TIME=$(grep "start_time" "$FINDINGS/fuzzer_stats" 2>/dev/null | awk '{print $3}')
+    START_TIME=${START_TIME:-$(date +%s)}
 
+    if [ -d "$CRASH_DIR" ]; then
         local ERROR_COUNT=0
         local UNIQUE_ERRORS=""
 
@@ -182,6 +184,30 @@ run_afl_problem() {
         echo "Total crashes: $CRASH_COUNT" >> "$LOG"
     else
         echo "Problem$N: no crashes directory found" > "$LOG"
+    fi
+
+    # ── Branch coverage from AFL plot_data ────────────────────────────────────
+    # plot_data columns: unix_time, cycles_done, cur_path, paths_total,
+    #   pending_total, pending_favs, map_size, unique_crashes, unique_hangs,
+    #   max_depth, execs_per_sec
+    # map_size is "X.XX%" of a 65536-entry bitmap → edges ≈ 65536 * X.XX / 100
+    echo "elapsed_seconds,unique_branches" > "$BRANCH_CSV"
+    if [ -f "$FINDINGS/plot_data" ]; then
+        tail -n +2 "$FINDINGS/plot_data" | awk -F', ' -v start="$START_TIME" '
+        {
+            unix_time = $1
+            map_pct   = $7
+            gsub(/%/, "", map_pct)
+            elapsed = unix_time - start
+            edges   = int(65536 * map_pct / 100 + 0.5)
+            if (elapsed >= 0) print elapsed "," edges
+        }' >> "$BRANCH_CSV"
+
+        # Final edges_found from fuzzer_stats (more accurate than last plot_data row)
+        local EDGES_FOUND=$(grep "edges_found" "$FINDINGS/fuzzer_stats" 2>/dev/null | awk '{print $3}')
+        if [ -n "$EDGES_FOUND" ]; then
+            echo "Total unique branches visited: $EDGES_FOUND" >> "$LOG"
+        fi
     fi
 
     echo "      Problem$N: done."

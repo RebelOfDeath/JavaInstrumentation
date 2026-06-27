@@ -142,11 +142,16 @@ def load_task2_results(results_dir):
         for p in PROBLEMS:
             log = parse_log_file(os.path.join(run_dir, f'problem{p}.log'))
             error_csv = load_error_csv(os.path.join(run_dir, f'problem{p}_afl_errors.csv'))
-            data[p].append({
+            branch_csv = load_branch_csv(os.path.join(run_dir, f'problem{p}_afl_branches.csv'))
+            run = {
                 'errors': log['errors'],
                 'error_codes': log['error_codes'],
                 'error_convergence': error_csv,
-            })
+                'branch_convergence': branch_csv,
+            }
+            if log['branches']:
+                run['branches'] = log['branches']
+            data[p].append(run)
 
     return data
 
@@ -222,10 +227,11 @@ def load_old_results(repo_dir):
 # ═══════════════════════════════════════════════════════════════════════════════
 
 def compute_stats(runs, key):
-    """Compute mean and std for a numeric key across runs."""
+    """Compute mean and std for a numeric key across runs.
+    Returns (None, None) when no runs contain the key (e.g. AFL has no branch data)."""
     values = [r.get(key) for r in runs if r.get(key) is not None]
     if not values:
-        return 0.0, 0.0
+        return None, None
     return np.mean(values), np.std(values, ddof=1) if len(values) > 1 else 0.0
 
 
@@ -313,7 +319,10 @@ def print_summary_table(data, title, techniques=None):
             runs = data[t].get(p, [])
             if runs:
                 m, s = compute_stats(runs, 'branches')
-                row += f"  {m:>8.1f} ± {s:>6.1f}   "
+                if m is not None:
+                    row += f"  {m:>8.1f} ± {s:>6.1f}   "
+                else:
+                    row += f"  {'N/A':>20}"
             else:
                 row += f"  {'N/A':>20}"
         print(row)
@@ -330,7 +339,10 @@ def print_summary_table(data, title, techniques=None):
             runs = data[t].get(p, [])
             if runs:
                 m, s = compute_stats(runs, 'errors')
-                row += f"  {m:>8.1f} ± {s:>6.1f}   "
+                if m is not None:
+                    row += f"  {m:>8.1f} ± {s:>6.1f}   "
+                else:
+                    row += f"  {'N/A':>20}"
             else:
                 row += f"  {'N/A':>20}"
         print(row)
@@ -341,12 +353,15 @@ def print_summary_table(data, title, techniques=None):
         row = f"  {metric + ' total':<12}"
         for t in techniques:
             total = 0
+            has_data = False
             for p in PROBLEMS:
                 runs = data[t].get(p, [])
                 if runs:
                     m, _ = compute_stats(runs, key)
-                    total += m
-            row += f"  {total:>20.1f}"
+                    if m is not None:
+                        total += m
+                        has_data = True
+            row += f"  {total:>20.1f}" if has_data else f"  {'N/A':>20}"
         print(row)
 
 
@@ -373,7 +388,10 @@ def generate_latex_table(data, techniques, caption, label):
             runs = data[t].get(p, [])
             if runs:
                 m, s = compute_stats(runs, 'branches')
-                cells.append(f"${m:.1f} \\pm {s:.1f}$")
+                if m is not None:
+                    cells.append(f"${m:.1f} \\pm {s:.1f}$")
+                else:
+                    cells.append("N/A")
             else:
                 cells.append("N/A")
         lines.append("        " + " & ".join(cells) + " \\\\")
@@ -407,7 +425,10 @@ def generate_latex_error_table(data, techniques, caption, label):
             runs = data[t].get(p, [])
             if runs:
                 m, s = compute_stats(runs, 'errors')
-                cells.append(f"${m:.1f} \\pm {s:.1f}$")
+                if m is not None:
+                    cells.append(f"${m:.1f} \\pm {s:.1f}$")
+                else:
+                    cells.append("N/A")
             else:
                 cells.append("N/A")
         lines.append("        " + " & ".join(cells) + " \\\\")
@@ -584,8 +605,8 @@ def plot_bar_comparison(data, techniques, metric, output_path, title=""):
             runs = data[tech].get(p, [])
             if runs:
                 m, s = compute_stats(runs, metric)
-                means.append(m)
-                stds.append(s)
+                means.append(m if m is not None else 0)
+                stds.append(s if s is not None else 0)
             else:
                 means.append(0)
                 stds.append(0)
@@ -762,9 +783,15 @@ def main():
         write_latex_tables(combined, techniques_2, output_dir, "task2")
 
         if HAS_MPL:
+            plot_aggregate_convergence(combined, techniques_2, 'branches',
+                                       os.path.join(output_dir, 'task2_branch_convergence.png'),
+                                       " (incl. AFL)")
             plot_aggregate_convergence(combined, techniques_2, 'errors',
                                        os.path.join(output_dir, 'task2_error_convergence.png'),
                                        " (incl. AFL)")
+            plot_bar_comparison(combined, techniques_2, 'branches',
+                                os.path.join(output_dir, 'task2_branches_bar.png'),
+                                "Task 2: Branch Coverage incl. AFL")
             plot_bar_comparison(combined, techniques_2, 'errors',
                                 os.path.join(output_dir, 'task2_errors_bar.png'),
                                 "Task 2: Error Discovery incl. AFL")
