@@ -1,3 +1,4 @@
-Problem14: 9 unique errors found
-Errors: error_41 error_77 error_18 error_73 error_59 error_28 error_76 error_25 error_90
-Total crashes: 15
+Problem14: 8 unique errors found
+Errors:  error_77 error_41 error_73 error_18 error_28 error_25 error_76 error_59
+Total crashes: 11
+Total unique branches visited: 801

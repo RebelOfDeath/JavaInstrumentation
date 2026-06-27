@@ -1,3 +1,4 @@
-Problem12: 7 unique errors found
-Errors: error_79 error_77 error_37 error_3 error_73 error_71 error_10
-Total crashes: 18
+Problem12: 5 unique errors found
+Errors:  error_79 error_3 error_37 error_10 error_77
+Total crashes: 12
+Total unique branches visited: 1259

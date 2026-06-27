@@ -1,3 +1,4 @@
-Problem13: 12 unique errors found
-Errors: error_70 error_87 error_10 error_71 error_1 error_23 error_34 error_3 error_49 error_90 error_37 error_75
-Total crashes: 44
+Problem13: 11 unique errors found
+Errors:  error_34 error_71 error_10 error_75 error_30 error_16 error_68 error_49 error_74 error_82 error_90
+Total crashes: 42
+Total unique branches visited: 1629

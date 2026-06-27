@@ -40,3 +40,5 @@ RERS2020Buggy/
 scripts/
 *.dot
 fuzzing_bins/
+
+**/findings_*/

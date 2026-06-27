@@ -1,3 +1,4 @@
-Problem17: 15 unique errors found
-Errors: error_66 error_2 error_96 error_53 error_11 error_37 error_61 error_78 error_99 error_50 error_31 error_25 error_69 error_97 error_22
-Total crashes: 24
+Problem17: 8 unique errors found
+Errors:  error_66 error_96 error_61 error_69 error_37 error_79 error_22 error_25
+Total crashes: 15
+Total unique branches visited: 1768

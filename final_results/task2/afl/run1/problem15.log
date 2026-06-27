@@ -1,3 +1,4 @@
-Problem15: 5 unique errors found
-Errors: error_7 error_33 error_64 error_78 error_76
-Total crashes: 7
+Problem15: 10 unique errors found
+Errors:  error_16 error_12 error_84 error_87 error_78 error_93 error_25 error_33 error_27 error_4
+Total crashes: 20
+Total unique branches visited: 5475

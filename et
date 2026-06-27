@@ -1,0 +1,1318 @@
+[33mcommit 871c929aa9de5be78864ce675cfc2b621f0087aa[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Roham Koohestani <koohestaniroham@gmail.com>
+Date:   Sat Jun 27 12:53:37 2026 +0200
+
+    update afl running logic
+
+[33mcommit c21bd0e4c9ed234e091e49515f90436a1377501b[m
+Author: Joshua Clark <tom-joshua.clark@europol.europa.eu>
+Date:   Fri Jun 26 17:22:16 2026 +0200
+
+    upload afl results
+
+[33mcommit 138b7c21baa8b3038ac1cdb572302dd2a30f73a5[m
+Author: Joshua Clark <tom-joshua.clark@europol.europa.eu>
+Date:   Fri Jun 26 12:21:20 2026 +0200
+
+    upload results
+
+[33mcommit 70945b04b44599b8fdd9058ff5ecb4c90a634565[m
+Author: Roham Koohestani <koohestaniroham@gmail.com>
+Date:   Fri Jun 26 10:09:16 2026 +0200
+
+    updated implementation
+
+[33mcommit 7d425cdc1941919ce27bc42997dc47ab2eaa06aa[m
+Merge: add2cef 91476a1
+Author: Roham Koohestani <69460326+RebelOfDeath@users.noreply.github.com>
+Date:   Fri Jun 19 15:53:52 2026 +0200
+
+    Merge pull request #4 from RebelOfDeath/model-learning
+    
+    upload lab implementation.
+
+[33mcommit 91476a1f16df80439092882b2c231538737d106e[m[33m ([m[1;31morigin/model-learning[m[33m, [m[1;32mmodel-learning[m[33m)[m
+Merge: 2dd5f28 1ff315f
+Author: Roham Koohestani <koohestaniroham@gmail.com>
+Date:   Fri Jun 19 15:53:04 2026 +0200
+
+    Merge remote-tracking branch 'origin/model-learning' into model-learning
+    
+    # Conflicts:
+    #       run_fuzzing_lab.sh
+
+[33mcommit 2dd5f28f9b82b16d6329eb8ce03dd93d8a0ec16c[m
+Author: Roham Koohestani <koohestaniroham@gmail.com>
+Date:   Fri Jun 19 11:31:06 2026 +0200
+
+    upload lab implementation.
+
+[33mcommit add2ceff452f5d3de7e08004ba7d96d2f16f04ce[m
+Merge: 63a0d52 f31b6e2
+Author: Roham Koohestani <69460326+RebelOfDeath@users.noreply.github.com>
+Date:   Fri Jun 19 15:46:09 2026 +0200
+
+    Merge pull request #3 from RebelOfDeath/patching
+    
+    Patching
+
+[33mcommit 63a0d526b74befc488a93e94cea86a99edd3900d[m
+Merge: 55dfd41 a393f44
+Author: Roham Koohestani <69460326+RebelOfDeath@users.noreply.github.com>
+Date:   Fri Jun 19 15:42:15 2026 +0200
+
+    Merge pull request #2 from RebelOfDeath/concolic
+    
+    Concolic
+
+[33mcommit 55dfd4122c473de0d674ea38db5ccc8126d93976[m
+Merge: 8684273 8cee95f
+Author: Roham Koohestani <69460326+RebelOfDeath@users.noreply.github.com>
+Date:   Fri Jun 19 15:41:24 2026 +0200
+
+    Merge pull request #1 from RebelOfDeath/fuzzing
+    
+    Fuzzing
+
+[33mcommit 1ff315f0e2b6c04a8adadfad09e6af3b437e6137[m
+Author: Roham Koohestani <koohestaniroham@gmail.com>
+Date:   Fri Jun 19 11:31:06 2026 +0200
+
+    upload lab implementation.
+
+[33mcommit f31b6e258bc1d5fa780a19406fc42dc8da860114[m[33m ([m[1;31morigin/patching[m[33m, [m[1;32mpatching[m[33m)[m
+Author: Joshua Clark <tom-joshua.clark@europol.europa.eu>
+Date:   Fri May 22 10:19:41 2026 +0200
+
+    fix: issue with calculating correctly patched
+
+[33mcommit 8cee95f81e1f5f12c0cf20c449abe750db98ad05[m[33m ([m[1;31morigin/fuzzing[m[33m)[m
+Author: Roham Koohestani <koohestaniroham@gmail.com>
+Date:   Sun May 17 19:24:57 2026 +0200
+
+    updated execution metadata in fuzzing_analysis notebook.
+
+[33mcommit db2488b266dfbb45d85b72dc0a037a7dc47a31ae[m
+Author: Joshua Clark <tom-joshua.clark@europol.europa.eu>
+Date:   Thu May 14 20:57:28 2026 +0200
+
+    Implementation and analysis for lab 3
+
+[33mcommit a393f444f8d1b9f7d15caf9fd79fae5a6c8fc4b0[m[33m ([m[1;31morigin/concolic[m[33m, [m[1;32mconcolic[m[33m)[m
+Author: Joshua Clark <tom-joshua.clark@europol.europa.eu>
+Date:   Sun May 3 16:36:27 2026 +0200
+
+    Implementation and analysis for lab 2
+
+[33mcommit 42d69ef52dd2743d366829b1eaee9f8b31e79d5c[m[33m ([m[1;31morigin/fuzzing-task3[m[33m, [m[1;32mfuzzing-task3[m[33m)[m
+Author: Joshua Clark <tom-joshua.clark@europol.europa.eu>
+Date:   Sun Apr 26 18:05:19 2026 +0200
+
+    added scripts, binaries, and results for task 3
+
+[33mcommit d8582924faafc1581ef417313f13963c284e8345[m[33m ([m[1;32mfuzzing[m[33m)[m
+Author: Roham Koohestani <koohestaniroham@gmail.com>
+Date:   Sat Apr 25 18:55:11 2026 +0200
+
+    added initial code for hill-climber + added notebook for fuzzing results analysis.
+
+[33mcommit 239cb437a681c55045f4bf320395682a35f31aaf[m
+Author: Roham Koohestani <koohestaniroham@gmail.com>
+Date:   Sat Apr 25 17:44:15 2026 +0200
+
+    added code for the first part (distance) of the fuzzing lab.
+
+[33mcommit 8684273d0f7cd7722a3389b4ff30a13afb86fe97[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Wed Feb 14 13:47:47 2024 +0100
+
+    Removed exclude for vscode folder for creation of private repos
+
+[33mcommit 32722fc8ae8f9b5752491fe9aae66971b027a5fa[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Tue Feb 6 17:23:16 2024 +0100
+
+    Small fix to resolve a nullpointer when running Lab 2 out of the box.
+
+[33mcommit 1d4729530909e93f0a67722aa65f3b0bf8cd7ec6[m
+Author: Clinton Cao <C.S.Cao@tudelft.nl>
+Date:   Mon Feb 5 16:05:23 2024 +0100
+
+    Small update of README
+
+[33mcommit db89f73c14aaecf437eaaae973c30c8fba99e55e[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Mon Feb 5 16:02:29 2024 +0100
+
+    Small modification in task.json + ported docs to lab manual.
+
+[33mcommit 568771f12ea1d1cea49cfb26e32f1a5c2673ebdd[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Fri Jan 26 13:50:15 2024 +0100
+
+    Small update on README
+
+[33mcommit 31b1a8619314e963f80876f137e8cc5107c65ec1[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Thu Jan 25 14:15:22 2024 +0100
+
+    Added code for trimming and constraining inputs returned by solver.
+
+[33mcommit 3de3cd8526495ba7d5d08609a7a5193deb03b201[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Mon Jan 22 14:06:48 2024 +0100
+
+    Renamed Symbolic lab to Concolic lab + Added test for Learning Lab.
+
+[33mcommit 97461316dc662740dce0b17ddce0f9479f4b0ffe[m
+Author: Clinton Cao <C.S.Cao@tudelft.nl>
+Date:   Tue Mar 28 13:56:50 2023 +0200
+
+    Delete learning_lab.md
+
+[33mcommit 1391676e06bdcd111e948067f44d4c8990cf7de6[m
+Merge: 2ef6c3b 82c839a
+Author: Clinton Cao <C.S.Cao@tudelft.nl>
+Date:   Tue Mar 28 13:51:19 2023 +0200
+
+    Merge pull request #37 from BramVerb/lstar
+    
+    Lab assignment 4
+
+[33mcommit 2ef6c3b8005a7cc1fcb500e8b70808f8c4f95a08[m
+Merge: 2f84716 446a154
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Tue Mar 28 13:49:53 2023 +0200
+
+    Merge branch 'main' of github.com:apanichella/JavaInstrumentation
+
+[33mcommit 2f8471676322856e0bf3562019c5b532a913e02b[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Tue Mar 28 13:49:36 2023 +0200
+
+    Added Lab 4
+
+[33mcommit 82c839a6e1ab47352447593e4e66f77cdd368a74[m
+Merge: 8023cb9 446a154
+Author: Bram V <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Mar 23 10:08:34 2023 +0100
+
+    Merge branch 'apanichella:main' into lstar
+
+[33mcommit 8023cb9b6c79bb290f198c5a87278a7c42acaeb5[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Mar 22 17:52:15 2023 +0000
+
+    Update learnlib
+
+[33mcommit a2a4e7771b306921ebb8821319427d0859ce4a45[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Mar 22 17:30:56 2023 +0000
+
+    Use learnlib in lab assignment
+
+[33mcommit 446a154b43a4d01eda7cf7267a16e4c6d5f2459c[m
+Merge: cc8bfe9 f73561e
+Author: Clinton Cao <C.S.Cao@tudelft.nl>
+Date:   Thu Mar 9 22:52:31 2023 +0100
+
+    Merge pull request #36 from BramVerb/solver-timeouts
+    
+    Set timeout on solver, instead of the whole trace
+
+[33mcommit e924f46cbf8cf3372431115c67994c99f2838ac1[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Mar 9 20:56:13 2023 +0000
+
+    Remove image
+
+[33mcommit 14e398526ed36a5946f7a86d12eec6471c62472b[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Mar 9 20:53:38 2023 +0000
+
+    Move assignment
+
+[33mcommit 877e4e3e9c8ada88eb9074d0eb81df1787e65a3f[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Mar 9 20:52:08 2023 +0000
+
+    Draft of assignment
+
+[33mcommit f73561e0891e7f6ed52bf95aadb462530d76ce33[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Mar 9 20:09:33 2023 +0000
+
+    Set timeout on solver, instead of the whole trace
+
+[33mcommit 44b751185da907bfd7848278782376681cd23fb0[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Mar 9 18:27:07 2023 +0000
+
+    Work more on lab 4
+
+[33mcommit 4fd403b2adbd893ac811126844ec6879f65130b4[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Mar 9 12:30:21 2023 +0000
+
+    Update more for the lab
+
+[33mcommit 3d4d11cf6aa574d4c35f2a95b5f7ab35afa7caa8[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Mar 9 08:52:04 2023 +0000
+
+    Use Word<T> class
+
+[33mcommit a5d83240fbafefb21a7e43b49210316a337949a5[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Mar 9 08:16:11 2023 +0000
+
+    Fix compilation
+
+[33mcommit e5af1812dbd9e82cea926b33ae1a55f86c9500a3[m
+Merge: 3361b61 b843b05
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Mar 8 12:35:54 2023 +0000
+
+    Merge branch 'enable-assertions' into lstar
+
+[33mcommit cc8bfe996081a569940aca853a7e6197a07f060f[m
+Merge: 2605dcc 4e0af8e
+Author: Clinton Cao <C.S.Cao@tudelft.nl>
+Date:   Thu Mar 2 13:19:58 2023 +0100
+
+    Merge pull request #33 from BramVerb/patch-1
+    
+    Update README.md
+
+[33mcommit 2605dcca55b8cdc966997fae6edbefb11859f481[m
+Merge: a7dd44e b843b05
+Author: Clinton Cao <C.S.Cao@tudelft.nl>
+Date:   Thu Mar 2 13:18:32 2023 +0100
+
+    Merge pull request #32 from BramVerb/enable-assertions
+    
+    Enable assertions in launch.json
+
+[33mcommit 4e0af8e6e3753d1a5e6b278b42dcd463e87b6383[m
+Author: Bram V <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Mar 2 13:13:18 2023 +0100
+
+    Update README.md
+    
+    The command for running the second lab was missing the current folder in the classpath
+
+[33mcommit b843b056eda58d3dfa1dcbffa8327dd3abeb1b93[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Feb 23 09:01:52 2023 +0000
+
+    Enable assertions in launch.json
+
+[33mcommit a7dd44e97d26fa5a78460bde5f45fbd3759d5d04[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Thu Feb 23 09:26:04 2023 +0100
+
+    Updated Lab 1
+
+[33mcommit ee76253f19468a053e76c58bbe8c39885be424e3[m
+Merge: 454129f 2a64a3f
+Author: Clinton Cao <C.S.Cao@tudelft.nl>
+Date:   Tue Feb 21 12:59:05 2023 +0100
+
+    Merge pull request #31 from BramVerb/devcontainer
+    
+    Devcontainer
+
+[33mcommit 2a64a3f526c5d70c30d985f06db405b84d79ef1d[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Tue Feb 21 10:52:28 2023 +0000
+
+    Add instrument buggy
+
+[33mcommit 454129fc114b10d64a7231a3eeb35056dedaf019[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Tue Feb 21 11:23:17 2023 +0100
+
+    Updated manual of lab 3 and added doc for dev container.
+
+[33mcommit fd82661e9a10bcdc8165f83d235a05f155c1c5aa[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Tue Feb 21 10:36:01 2023 +0100
+
+    Automatically read the right test case files
+
+[33mcommit 4137fc964a86a7753c733528cb99c3b31f978a28[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Tue Feb 21 10:33:03 2023 +0100
+
+    Move rers2020_test_cases
+
+[33mcommit c4a599f8e23c4208ff99e4d5a3b9d1d83e72705a[m
+Merge: 5cca189 b2c7d95
+Author: Clinton Cao <C.S.Cao@tudelft.nl>
+Date:   Mon Feb 20 19:59:41 2023 +0100
+
+    Merge pull request #30 from BramVerb/devcontainer
+    
+    Devcontainer setup
+
+[33mcommit b2c7d95d826f81b9785b5fa96dcb05485e911d14[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Mon Feb 20 17:26:44 2023 +0000
+
+    Skip instrumenting problem 9 because it is too big
+
+[33mcommit 53a3cf6a4edcd2ae867d79d0139b487f55226455[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Mon Feb 20 17:02:34 2023 +0100
+
+    Formatting
+
+[33mcommit 63b2038e1ea40f2a31c77dcbcfcc2edf4581194a[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Fri Feb 17 14:37:30 2023 +0000
+
+    Ignore the rest of the vscode folder
+
+[33mcommit 3504bfdf528dec6b7257f0463305283ba6ac1091[m
+Author: Bram V <33070319+BramVerb@users.noreply.github.com>
+Date:   Fri Feb 17 15:12:58 2023 +0000
+
+    Use clean package to fix instrumentation
+
+[33mcommit 69e1a665bd3e8d6d420831494b2500141f965432[m
+Author: Bram V <33070319+BramVerb@users.noreply.github.com>
+Date:   Fri Feb 17 15:10:15 2023 +0000
+
+    Chmod +x instrumentation script
+
+[33mcommit b8df39f391c0fd44aee03f94dbda4916f5fa15ff[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Fri Feb 17 14:26:17 2023 +0000
+
+    Recommend remote extension pack
+
+[33mcommit e48ca8511c0e2597ddf0ad21b6accdaa32fd0b9d[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Fri Feb 17 13:56:23 2023 +0000
+
+    Setup launching and instrumenting in devcontainer
+
+[33mcommit 7ab27eb83239ac88bb2c9f1a4599aff8e8df35d9[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Feb 16 22:47:50 2023 +0000
+
+    Add back gitattributes
+
+[33mcommit fe7bd8b9d32962cd94602c1d11b0a78c3e3377a9[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Feb 16 22:43:07 2023 +0000
+
+    Remove java features from devcontainer
+
+[33mcommit 9eca5bf8b3f6f24843fddfb99280b2c889776dd6[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Feb 16 22:21:10 2023 +0000
+
+    Update .gitignore
+
+[33mcommit c939abaa75d86915c240a4ca36f2078f20e95bff[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Feb 16 22:19:08 2023 +0000
+
+    Add java extension by default
+
+[33mcommit 0c1c800e553527551f92617471c1d8f4905370e0[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Feb 16 22:11:26 2023 +0000
+
+    No more settings.json
+
+[33mcommit 46492e62b03de18f7a2bc4d95062f9f20c23a3f8[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Feb 16 22:10:56 2023 +0000
+
+    Remove gitattributes
+
+[33mcommit 0db592005ef32efca236c7d6ca6fbad6fe6007df[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Feb 16 22:08:13 2023 +0000
+
+    Update devcontainer.json
+
+[33mcommit 64eaa2e6f1df8a9ff9c5132525aca1fc1ca25fc6[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Feb 16 21:55:39 2023 +0000
+
+    Add devcontainer stuff
+
+[33mcommit 5cca189c131f8bc3c9136be04fa53e0aeb3c4956[m
+Merge: de70430 56bdb01
+Author: Clinton Cao <C.S.Cao@tudelft.nl>
+Date:   Wed Feb 15 22:14:34 2023 +0100
+
+    Merge pull request #29 from BramVerb/line-endings
+    
+    Change default line endings of repo
+
+[33mcommit 56bdb01a1f9047468c2147bf6f1c0754c17ddcb1[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 15 16:35:03 2023 +0100
+
+    Change default line endings of vscode and git
+
+[33mcommit de7043084a6969571cddcae312d1ebc9e8552578[m
+Merge: 6b4c783 77648ee
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Wed Feb 15 13:39:01 2023 +0100
+
+    Merge branch 'main' of github.com:apanichella/JavaInstrumentation
+
+[33mcommit 6b4c783cae2b3ee0ca6b96e312ecce1cfbf51138[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Wed Feb 15 13:38:24 2023 +0100
+
+    Removed unnecessary call to /bin/bash in document.
+
+[33mcommit 77648ee83f141734181f74809355b159cdef22e4[m
+Merge: cd117b9 88b5151
+Author: Clinton Cao <C.S.Cao@tudelft.nl>
+Date:   Tue Feb 14 15:12:01 2023 +0100
+
+    Merge pull request #28 from BramVerb/short-instrumentation
+    
+    Make instrumentation more compact
+
+[33mcommit 88b5151d705e04f765a327e76f65ec62fbb51a58[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Tue Feb 14 15:09:10 2023 +0100
+
+    Fix the tests
+
+[33mcommit cd117b95a6a80f622291796f29b233d4e809ab49[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Tue Feb 14 14:13:59 2023 +0100
+
+    Updated PDF for the docker installation
+
+[33mcommit 4d5b75801eeea0ba6cd01447f5fd225b00f0698e[m
+Merge: 4414bf2 4e02c27
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Tue Feb 14 13:52:38 2023 +0100
+
+    Merge branch 'main' of github.com:apanichella/JavaInstrumentation
+
+[33mcommit 4414bf223d4d15c573b1c548c250cf14d8eaadd8[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Tue Feb 14 13:50:53 2023 +0100
+
+    Updated assignments for 2023 edition of the course.
+
+[33mcommit b66ff4a43b2c69c40ad7dccd871e400dd3f19d81[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Tue Feb 14 12:37:12 2023 +0100
+
+    Make instrumentation more compact
+
+[33mcommit 4e02c27ccdd75eb184f3544ce1a962b6bdb57e57[m
+Merge: 141a495 7910011
+Author: Clinton Cao <C.S.Cao@tudelft.nl>
+Date:   Mon Feb 13 16:18:30 2023 +0100
+
+    Merge pull request #27 from BramVerb/klee-summary-script
+    
+    Add summary script for KLEE
+
+[33mcommit 7910011e549982096af25d8baa9753b32216e7cc[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Mon Feb 13 15:41:49 2023 +0100
+
+    Add summary script for KLEE
+
+[33mcommit 141a49536be3d666e7e435297a8bcf799dd9118c[m
+Merge: ad3c6bf 4ccf3f5
+Author: Clinton Cao <C.S.Cao@tudelft.nl>
+Date:   Mon Feb 13 09:58:58 2023 +0100
+
+    Merge pull request #26 from BramVerb/custom-problems
+    
+    Add a simple problem to support easier debugging
+
+[33mcommit ad3c6bfae0fdc2ceaa3c1efdcc99b552f76cab80[m
+Merge: 0a5c351 0b1aeb2
+Author: Clinton Cao <C.S.Cao@tudelft.nl>
+Date:   Mon Feb 13 09:56:13 2023 +0100
+
+    Merge pull request #25 from BramVerb/fix-output-capture
+    
+    Fix handling of comments in instrumentation
+
+[33mcommit 4ccf3f519190eae48df7702735e5e641f1eba96d[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Feb 9 09:57:08 2023 +0100
+
+    Add a simple problem to support easier debugging
+
+[33mcommit 0b1aeb21ce415904f994a14e981bc0512bc70d56[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Feb 9 09:18:49 2023 +0100
+
+    Fix a handling comments in instrumentation
+    
+    The instrumentation wrongly instrumented code that contained comments.
+    A `Node.toString()` could include any previous comments. If the comments
+    then contained `System.out`, the code after the comment would get
+    instrumented. By checking the `MethodCallExpr` this has been fixed,
+    as that does not include comments.
+
+[33mcommit 3361b61d9e0911c2ba1968756398ecb9b9a3ef95[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 8 23:01:07 2023 +0100
+
+    Use List<String> instead of Strings
+
+[33mcommit c2d3652795a9504b6141e9c9d309f7c19fdbf437[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 8 22:30:55 2023 +0100
+
+    Maintain order in getting mealy states
+
+[33mcommit 955e49aea621b188412d07fd2c907bb693c8c4c6[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 8 22:19:36 2023 +0100
+
+    Use lambda for no ouput
+
+[33mcommit cba428d29406d1106ca070b7761f4bc93d70f0bb[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 8 22:19:13 2023 +0100
+
+    Formatting
+
+[33mcommit fb9cedbd6cd194f1fc5b6fca62bb14f2d3a0acdd[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 8 22:19:01 2023 +0100
+
+    Fix generation of mealy machines
+
+[33mcommit 7a1bd45592b591e26c515c17682aee0c3f55d5ea[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 8 22:05:23 2023 +0100
+
+    Add colors to graphs
+
+[33mcommit 9de445994e4d432558a6c9083eb5e0fad416070a[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 8 22:04:55 2023 +0100
+
+    Fix observationtable for mealy machines
+
+[33mcommit acb80eee2727a49a40bb357b089b5b9198f3dab2[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 8 21:35:25 2023 +0100
+
+    Remove check for duplicate edge
+
+[33mcommit b03a7e17f9f6c9ff4a85f2d007b4709f03818829[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Feb 2 10:05:06 2023 +0100
+
+    Write to dot
+
+[33mcommit 89d6960dfe275c50e48688f66c100b0aa250f5b3[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Feb 2 07:34:33 2023 +0100
+
+    Add necessary functions
+
+[33mcommit 2d357363485348e127227c0d49e3a24926d387bb[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 1 22:05:32 2023 +0100
+
+    Print observationTable by default
+
+[33mcommit 0d29a2eed5542984ad786fcec30ada0e95461ba5[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 1 22:05:17 2023 +0100
+
+    Shuffle methods around
+
+[33mcommit 1b292c2ab28557792a20109df12fd0b939f48f9a[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 1 21:56:45 2023 +0100
+
+    Comments and cleanup
+
+[33mcommit ab9a7b7144cae1c3a89faee8ea85953bd7917069[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 1 21:44:27 2023 +0100
+
+    More comments
+
+[33mcommit 0e25cd903934e2aac0a024b65b681a3e323ef4e4[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 1 20:55:08 2023 +0100
+
+    Make 'error' and 'invalid input' outputs shorter
+
+[33mcommit ce724a02952abb1e0c69804556a1f55ab4f6ae8c[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 1 20:54:34 2023 +0100
+
+    Allow ObservationTable to generate hypothesis
+
+[33mcommit 63439e51b43a5075373fbfb3be7664427e81be61[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 1 20:49:16 2023 +0100
+
+    Fix bug in RandomWalkEquivalenceChecker
+
+[33mcommit bd640c50cdc13737c622e556298b1a1623eed563[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 1 20:49:04 2023 +0100
+
+    Add equals for MealyTransition
+
+[33mcommit f8af110f437b2570b5ffdd5151f3220afeaaa420[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 1 20:48:35 2023 +0100
+
+    More for learning lab
+
+[33mcommit 137ef9c4b2cc2c7067762237adfb917136d3ba0d[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 1 18:10:12 2023 +0100
+
+    Setup whole structure for learning
+
+[33mcommit 1b430444b871ff70004127de8e87a0ef187d5c3c[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 1 17:12:43 2023 +0100
+
+    Update obstable
+
+[33mcommit b36e712f6e81d5ca23a802afd2934073678d4568[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 1 16:42:32 2023 +0100
+
+    ObservationTable
+
+[33mcommit 31748e1669352b65825916c8314fc723253d9d27[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 1 15:32:31 2023 +0100
+
+    Formatting and observationTable
+
+[33mcommit 5f4e964d18912f0540b7c432a0718ec3d97f43ff[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Feb 1 14:37:33 2023 +0100
+
+    Work on setup for Lstar
+
+[33mcommit 0a5c35102e157271476b9914738627c6aa302431[m
+Merge: 55ed679 ee8d29d
+Author: Clinton Cao <C.S.Cao@tudelft.nl>
+Date:   Thu Jan 19 16:08:36 2023 +0100
+
+    Merge pull request #24 from BramVerb/afl-summary-script
+    
+    AFL summary script
+
+[33mcommit ee8d29dbaa5e0bc53ee51e23d947a6f18df331fa[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Jan 19 16:05:56 2023 +0100
+
+    Update sentences
+
+[33mcommit 3e1a0c92ed737236aff3bc7276468d903d3d884b[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Thu Jan 19 15:43:19 2023 +0100
+
+    AFL summary script
+
+[33mcommit 55ed67997fa049462a746a13c6cc8a552fff4bdf[m
+Author: Clinton Cao <C.S.Cao@tudelft.nl>
+Date:   Tue Jan 10 14:04:58 2023 +0100
+
+    Updated document based on recent PRs
+
+[33mcommit a658e4dbd6e68d94eb838689afd69258d7f45484[m
+Merge: b9db744 515faf0
+Author: Clinton Cao <C.S.Cao@tudelft.nl>
+Date:   Tue Jan 10 10:49:08 2023 +0100
+
+    Merge pull request #23 from BramVerb/only-catch-specific-exceptions
+    
+    Only catch the specific exceptions thrown by the problems
+
+[33mcommit b9db744b2e750df7a76650598e3c4e0277839c1f[m
+Merge: 5f9326e 8f329a0
+Author: Clinton Cao <C.S.Cao@tudelft.nl>
+Date:   Tue Jan 10 10:45:14 2023 +0100
+
+    Merge pull request #22 from BramVerb/increment-operator
+    
+    Fix unary increment operator if only expression on a line
+
+[33mcommit 5f9326e02fe1a04f0d00716d3651bbc930c3d5c6[m
+Merge: 259478d 2615ad5
+Author: Clinton Cao <C.S.Cao@tudelft.nl>
+Date:   Tue Jan 10 10:23:32 2023 +0100
+
+    Merge pull request #21 from BramVerb/reuse-solver
+    
+    Reuse the solver to speedup symbolic execution
+
+[33mcommit 515faf06999b3bd26a09d8c89ccc409d7a231ac6[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Mon Jan 9 13:20:25 2023 +0100
+
+    Only catch the specific errors thrown by problems
+    
+    This allows other errors to still crash the program such that a user can
+    see the error, instead of it being consumed.
+
+[33mcommit 8f329a0ecac47eb40c751cf72d52759a7374b055[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Tue Jan 3 11:53:21 2023 +0100
+
+    Fix the failing test by handling unary expressions
+    
+    Any unary expression now gets instrumented as well.
+
+[33mcommit 86bfa69622b43682eeda9b577df4536d915b7974[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Tue Jan 3 11:47:40 2023 +0100
+
+    Add failing test for increment operator (++)
+    
+    The increment operator is not being instrumented if it is the only
+    statement on a line.
+
+[33mcommit 2615ad5a8333236b0653cb260d72e0892ea85833[m
+Author: BramVerb <33070319+BramVerb@users.noreply.github.com>
+Date:   Tue Nov 29 12:58:31 2022 +0100
+
+    Reuse the solver to speedup symbolic execution
+    
+    All constraints but the condition of a branch is the same during symbolic execution. Therefore a single solver can be created once and reused for each execution of a trace.
+    When solving for a branch the state of the solver is saved (push), the
+    branch condition is added and the solver is run. After being done with
+    the solver, the state of the solver is resorted by popping.
+    
+    Creating and reusing the solver speeds up the process of symbolic execution.
+
+[33mcommit 259478df7ac24fa568b412ea1579be0f992c9d95[m
+Merge: db608e8 e90d2f2
+Author: Annibale Panichella <a.panichella@tudelft.nl>
+Date:   Mon Mar 21 15:22:50 2022 +0100
+
+    Merge pull request #19 from BramVerb/patch-1
+    
+    Update README.md
+
+[33mcommit e90d2f2e6797180cbb2ae9122a9c3a0517a7483b[m
+Author: Bram V <33070319+BramVerb@users.noreply.github.com>
+Date:   Wed Mar 16 09:07:58 2022 +0100
+
+    Update README.md
+    
+    The command for instrumenting lab 3 should be lowercase: `patching` instead of `Patching`
+
+[33mcommit db608e8fb69fdd5d3cdc2aef6dbd8be890e4d441[m
+Merge: 9a42531 d86bf42
+Author: Annibale Panichella <a.panichella@tudelft.nl>
+Date:   Mon Feb 7 16:11:11 2022 +0100
+
+    Merge pull request #17 from ClintonCao/main
+    
+    Updated assignments + Updated README + Added docs.
+
+[33mcommit d86bf42f9409025d727066eec186b7a356a345a5[m
+Merge: 4af4587 9a42531
+Author: Clinton Cao <C.S.Cao@tudelft.nl>
+Date:   Mon Feb 7 15:17:32 2022 +0100
+
+    Merge branch 'apanichella:main' into main
+
+[33mcommit 4af458715b2a34bc6a50ca990a6e3577fd02826b[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Mon Feb 7 15:16:47 2022 +0100
+
+    Updated author information.
+
+[33mcommit 94f5702f7286c43871d9d3a41db4860c86bea29b[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Mon Feb 7 15:11:54 2022 +0100
+
+    Added lab manuals, docs and test cases for lab 3
+
+[33mcommit 0e0077e27fe69713fbb858b103e20df6d1b4bb25[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Sat Jan 22 17:02:31 2022 +0100
+
+    Moved Error class and updated README.
+
+[33mcommit 4ec1b83ac49d5659e78550e0872c858b6c7f2c14[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Sat Jan 22 14:59:09 2022 +0100
+
+    Added more test cases for the instrumentation classes.
+
+[33mcommit 9f5e45620eac69d5a7297965739ae7854500915f[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Sat Jan 15 17:35:53 2022 +0100
+
+    Fixed some bugs in the instrumentation.
+
+[33mcommit f905382df90b5f599499f7bc05af0ad91080e60e[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Fri Jan 14 16:34:44 2022 +0100
+
+    Finished rewriting symbolic lab.
+
+[33mcommit 41f7511a1c7cf7c3e906cb4ce0b11f6df1f43cd4[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Fri Jan 14 14:35:31 2022 +0100
+
+    Finished rewriting Fuzzing assignment.
+
+[33mcommit 9a425318bc39f1be6f4c193cffd842261af35e9d[m
+Merge: 3a7063a c0c1171
+Author: Annibale Panichella <a.panichella@tudelft.nl>
+Date:   Tue Mar 16 12:46:57 2021 +0100
+
+    Merge pull request #16 from TCatshoek/patch-2
+    
+    Fix second model example
+
+[33mcommit c0c117100e768a74ed2f65100617d5a470d1a7e5[m
+Author: Tom Catshoek <T.W.J.Catshoek@student.tudelft.nl>
+Date:   Tue Mar 16 12:43:54 2021 +0100
+
+    Fix second model example
+    
+    Input constraints were missing before
+
+[33mcommit ceb5fa1427a5d0af57bbd53d3b6037b22d99b092[m
+Merge: f9f2ca2 3a7063a
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Mon Mar 15 17:47:31 2021 +0100
+
+    Merge remote-tracking branch 'upstream/main'
+
+[33mcommit 3a7063a445a6388285670c262d9493e0850b1b4a[m
+Merge: ab806b3 a58db06
+Author: Annibale Panichella <a.panichella@tudelft.nl>
+Date:   Mon Mar 15 16:43:55 2021 +0100
+
+    Merge pull request #15 from TCatshoek/main
+    
+    Refactor Assignment 3
+
+[33mcommit a58db06e67ce96451174b8710fd8a19576aa0e19[m
+Author: Tom Catshoek <t.w.j.catshoek@student.tudelft.nl>
+Date:   Mon Mar 15 16:30:01 2021 +0100
+
+    Add OperatorVisitor tests
+
+[33mcommit bcbdf940d2d880c2e4b6c9135942761e331423e8[m
+Author: Tom Catshoek <t.w.j.catshoek@student.tudelft.nl>
+Date:   Mon Mar 15 16:27:10 2021 +0100
+
+    Add back comments and remove unused if statement
+
+[33mcommit ab6725f03de7f2dd192695daa468bfcf1479fb92[m
+Author: Tom Catshoek <t.w.j.catshoek@student.tudelft.nl>
+Date:   Mon Mar 15 16:14:43 2021 +0100
+
+    Refactor third assignment to hand over control to PatchingLab
+
+[33mcommit ab806b33a030c4ac4153ce03fdfe4363827c71d4[m
+Merge: 6a23b61 27a67c5
+Author: Annibale Panichella <a.panichella@tudelft.nl>
+Date:   Fri Mar 12 15:32:00 2021 +0100
+
+    Merge pull request #13 from LukeSerne/main
+    
+    Change the reset symbol to an invalid input symbol.
+
+[33mcommit f9f2ca2a237e5dc8fc54478b87994676951f981d[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Wed Mar 10 17:10:36 2021 +0100
+
+    Fixed typo in info string.
+
+[33mcommit 31db35be569d02866838eb8400165df30714d255[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Wed Mar 10 09:55:39 2021 +0100
+
+    Added commandline option for third lab + added tests for OperatorVisitor.
+
+[33mcommit 27a67c5b5f46df819f929ed62b55dbb33d90bc55[m
+Author: Luke <l.j.serne@student.tudelft.nl>
+Date:   Fri Mar 5 16:20:51 2021 +0100
+
+    Change reset symbol to invalid input symbol.
+    RERS problems 17, 18 and 19 use the capital R as valid input symbol, so
+    this symbol should not be used to reset the system. I arbitrarily chose
+    an unused symbol (#) to be the new reset symbol.
+
+[33mcommit 23524b127b9e59a1db62a59ef7fe34aa74fdb984[m
+Author: Luke <l.j.serne@student.tudelft.nl>
+Date:   Fri Mar 5 16:18:22 2021 +0100
+
+    Remove trailing whitespace.
+
+[33mcommit 6a23b61b7a34049a5fb93f3730f9ddb180ff9f9d[m
+Merge: d161a64 d9fa497
+Author: Annibale Panichella <a.panichella@tudelft.nl>
+Date:   Wed Mar 3 15:29:17 2021 +0100
+
+    Merge pull request #12 from TCatshoek/main
+    
+    Fix small naming mistake
+
+[33mcommit d9fa497235a4e6ef7b1ec1d0a920382868853a77[m
+Author: Tom Catshoek <t.w.j.catshoek@student.tudelft.nl>
+Date:   Wed Mar 3 15:27:53 2021 +0100
+
+    Fix small naming mistake
+
+[33mcommit d161a64ec95a28335d471a1b8b9b9595ac0f52f2[m
+Merge: 014755f 8ca0805
+Author: Annibale Panichella <a.panichella@tudelft.nl>
+Date:   Wed Mar 3 15:10:10 2021 +0100
+
+    Merge pull request #11 from TCatshoek/main
+    
+    Fix mistake in README.md
+
+[33mcommit 8ca0805cd06b0668dbc696102110529bf77c9d2e[m
+Author: Tom Catshoek <T.W.J.Catshoek@student.tudelft.nl>
+Date:   Wed Mar 3 14:56:24 2021 +0100
+
+    Update README.md
+    
+    Fix missing .jar in instruction for second lab
+
+[33mcommit 014755f1db9dc5faa929ad1ed33d965050ebf90f[m
+Merge: f33295f 92327fa
+Author: Annibale Panichella <a.panichella@tudelft.nl>
+Date:   Tue Mar 2 16:40:23 2021 +0100
+
+    Merge pull request #9 from TCatshoek/main
+    
+    Add symbolic lab docs
+
+[33mcommit 92327fa6bb0ba712502257810c6380521db60d69[m
+Author: Tom Catshoek <t.w.j.catshoek@student.tudelft.nl>
+Date:   Tue Mar 2 16:35:33 2021 +0100
+
+    Add example model
+
+[33mcommit 5975bb6121a4a191210f1d79f571d6008ce4ddd8[m
+Author: Tom Catshoek <t.w.j.catshoek@student.tudelft.nl>
+Date:   Tue Mar 2 16:21:14 2021 +0100
+
+    add symbolic lab docs
+
+[33mcommit f33295f625b62bcd64e74150b79c5a024d984f23[m
+Merge: 83f6e67 177cfa0
+Author: Annibale Panichella <a.panichella@tudelft.nl>
+Date:   Tue Mar 2 11:00:26 2021 +0100
+
+    Merge pull request #8 from ClintonCao/main
+    
+    Updated tutorial docs.
+
+[33mcommit 177cfa0419b1e0a4c369de14e96c453fa00f7bfc[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Mon Mar 1 16:05:31 2021 +0100
+
+    Removed old arguments used in an older version of KLEE.
+
+[33mcommit 83f6e6743f612457d4f11ac9b618e0c13c79cd48[m
+Merge: c90894b f2b699e
+Author: Annibale Panichella <a.panichella@tudelft.nl>
+Date:   Mon Mar 1 15:08:20 2021 +0100
+
+    Merge pull request #6 from TCatshoek/main
+    
+    Fix issue with assign where z3var was passed directly instead of the …
+
+[33mcommit 81abf2b52dbdfc1af3e6dde3ed092e792c69ae95[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Mon Mar 1 14:59:34 2021 +0100
+
+    Added extra lines that mentions where the binaries of KLEE are located in the docker.
+
+[33mcommit f2b699ed3d36845276d634b4e45cafb8c859a08d[m
+Author: Tom Catshoek <t.w.j.catshoek@student.tudelft.nl>
+Date:   Mon Mar 1 14:40:29 2021 +0100
+
+    Leave out symbolic tests for now
+
+[33mcommit 03e54e3874da84a60d3c22a4b582ed7ccef820cc[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Mon Mar 1 14:39:24 2021 +0100
+
+    Removed part of tutorial that might confuse the students.
+
+[33mcommit 44d596ccc38fc76c4b5ec5421526c90f426ae575[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Tue Feb 23 18:21:22 2021 +0100
+
+    Add missing bracket.
+
+[33mcommit 082e95959a5f14a96bf000e6d3cafe89c4f426f3[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Tue Feb 23 18:20:03 2021 +0100
+
+    Add extra note for compiling Reachability problems.
+
+[33mcommit bbae4a6950572eb09adf69cf5b23c7c6b28b899e[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Tue Feb 23 10:33:09 2021 +0100
+
+    Updated docs on fuzzing with AFL.
+
+[33mcommit c90894ba48ce99aae02e18d30ef7c02c32c7399e[m
+Merge: dcd824c 6c00ab7
+Author: Annibale Panichella <a.panichella@tudelft.nl>
+Date:   Mon Feb 22 15:55:18 2021 +0100
+
+    Merge pull request #7 from ClintonCao/main
+    
+    Adding method that handles the assignment of arrays to variables.
+
+[33mcommit 6c00ab7ad9deded178e9743f0af99b89dd261191[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Fri Feb 19 18:16:41 2021 +0100
+
+    Adding some test cases for the PathVisitor class.
+
+[33mcommit e67b07fb8f01674122a60b59c214091bdb4a0ee9[m
+Author: Tom Catshoek <t.w.j.catshoek@student.tudelft.nl>
+Date:   Fri Feb 19 18:15:35 2021 +0100
+
+    Add assign tests
+
+[33mcommit 3220d82060cb399578259ec36a66df55fc610429[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Fri Feb 19 17:11:50 2021 +0100
+
+    Adding method that handles the assignment of arrays to variables.
+
+[33mcommit 039c637fdeb36aefed5f5118182feab50c1b958e[m
+Author: Tom Catshoek <t.w.j.catshoek@student.tudelft.nl>
+Date:   Fri Feb 19 12:29:01 2021 +0100
+
+    Fix issue with assign where z3var was passed directly instead of the corresponding MyVar
+
+[33mcommit dcd824c9877ab9bc3beac43b9099313c1be1e055[m
+Merge: 0e6b1d7 40df9a2
+Author: Annibale Panichella <a.panichella@tudelft.nl>
+Date:   Thu Feb 18 13:26:44 2021 +0100
+
+    Merge pull request #4 from x0rz3q/x0rz3q/enum
+    
+    Replace magic numbers with enums for MyVar types
+
+[33mcommit 0e6b1d745e066ad9a90271c3970956ee0247143f[m
+Merge: 3a99571 afe467c
+Author: Annibale Panichella <a.panichella@tudelft.nl>
+Date:   Wed Feb 17 22:43:03 2021 +0100
+
+    Merge pull request #5 from ClintonCao/main
+    
+    Added documents that shows how to get AFL and KLEE running on the RERS problems
+
+[33mcommit afe467c7fbc6d49d96ce39781a13d5700f8b640b[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Wed Feb 17 22:39:42 2021 +0100
+
+    Replaced duplicate operator in the if-statement.
+
+[33mcommit 675e1cceb956c0c1c0460fd9fe8d0267e263bd70[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Tue Feb 16 15:54:10 2021 +0100
+
+    Wrapped the paths in a code block.
+
+[33mcommit 40df9a2348f2f8b87c9ad8e1abf36c30236cee38[m
+Author: J.M. Thiessen <jacob@x0rz3q.com>
+Date:   Tue Feb 16 15:52:55 2021 +0100
+
+    Replace magic numbers with enums for MyVar types
+
+[33mcommit 06d4ca0670ec9401319f9e0ff944f99ff9cb9bf5[m
+Merge: 3c72b2e 5c4da57
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Tue Feb 16 15:49:42 2021 +0100
+
+    Merge branch 'main' of https://github.com/ClintonCao/JavaInstrumentation
+
+[33mcommit 3c72b2ed5195831e9e38c63c1a029cb7ecc6c6e6[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Tue Feb 16 15:48:56 2021 +0100
+
+    Adding docs that explains how to get AFL and KLEE running on RERS problems.
+
+[33mcommit 3a995711deb0571db048a79314d37dbb98c4432c[m
+Merge: 443a06b 5c4da57
+Author: Annibale Panichella <a.panichella@tudelft.nl>
+Date:   Thu Feb 11 09:24:43 2021 +0100
+
+    Merge pull request #3 from ClintonCao/main
+    
+    Updated commands in the README.
+
+[33mcommit 5c4da5799d93f5241466c445a2c1eb0a5c891a04[m
+Author: Clinton Cao <C.S.Cao@tudelft.nl>
+Date:   Wed Feb 10 19:59:10 2021 +0100
+
+    Update README.md
+
+[33mcommit 443a06be0394b199fae4f5a45806539ba6625e86[m
+Merge: 3a09399 0c61561
+Author: Annibale Panichella <a.panichella@tudelft.nl>
+Date:   Tue Feb 9 10:23:29 2021 +0100
+
+    Merge pull request #2 from ClintonCao/main
+    
+    Missing option and example test file for Lab 3
+
+[33mcommit 0c61561d459d6b9ddef8640382eaee46d8b10526[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Tue Feb 9 09:32:04 2021 +0100
+
+    Adding new helper function for the initialization of the population.
+
+[33mcommit 24b5d3be20d29247f191793950936a65353ce07b[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Mon Feb 8 23:02:00 2021 +0100
+
+    Adding example test file for lab 3 + changing how the file is read.
+
+[33mcommit a7aca415c93ebd47212773ce493eba1430cd7af2[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Mon Feb 8 22:47:57 2021 +0100
+
+    Adding missing option for the instrumentation of lab 3.
+
+[33mcommit 3a09399f256ec5da44e48331700949358af6b9fa[m
+Merge: 0cc17f0 975418c
+Author: Annibale Panichella <a.panichella@tudelft.nl>
+Date:   Mon Feb 8 18:15:27 2021 +0100
+
+    Merge pull request #1 from ClintonCao/main
+    
+    Code for the instrumentation for  the assignments
+
+[33mcommit 975418ce1c2e82795dfcf1b2588cecf68fb6f24e[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Mon Feb 8 17:46:43 2021 +0100
+
+    Adding instrumentation for assignment 3.
+
+[33mcommit 883ba7534961048d921dd82df802c48489f2897b[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Mon Feb 8 15:13:38 2021 +0100
+
+    Moved dylib back to root folder (works only on a Mac if it is in the root folder?)
+
+[33mcommit 0e9cdbd66979d847bdb395da3255fa4a49b642dd[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Mon Feb 8 14:44:42 2021 +0100
+
+    Fixing mistake in the string that is defined in the visitor.
+
+[33mcommit c389537322946b24868340212c2a06e8f2eb2563[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Mon Feb 8 14:24:09 2021 +0100
+
+    Moved fuzzer code to the FuzzingLab file (all modification should be done in one file).
+
+[33mcommit 90fe8b50666153961a4684996b1b15e72306bfd6[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Mon Feb 8 13:47:22 2021 +0100
+
+    Updated visitors and trackers.
+
+[33mcommit 2c39ded396673006742a18f92e7e2b40c0578598[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Sun Feb 7 17:11:54 2021 +0100
+
+    Adding new commands for building and running the instrumented files.
+
+[33mcommit b17381c8baad5d0563857ddbcdba2b60f802c72c[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Fri Feb 5 23:02:26 2021 +0100
+
+    Adding some tests for DistanceVisitor.
+
+[33mcommit ac589fde9f8019f95649940950aaa367e3b12ff5[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Fri Feb 5 22:52:00 2021 +0100
+
+    Importing latest changes for first two assignments + adding start of assignment 3.
+
+[33mcommit 121126bb7fcc2f9d36ef3a19bea65df57dff2da3[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Fri Feb 5 13:39:54 2021 +0100
+
+    Adding new field to the fuzzer class to keep track the current symbol that is returned by fuzzer.
+
+[33mcommit c43ff9319464efb44b38a67d13350fcfbcd30a54[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Fri Feb 5 11:41:16 2021 +0100
+
+    Adding test for the fuzzer.
+
+[33mcommit 3ebf53ee030aa24dad27280ae711e3c9e9afdd6a[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Fri Feb 5 10:02:53 2021 +0100
+
+    Forgot to initialize the nextInput variable.
+
+[33mcommit 211e6010e61c37fe051afa3c708b33cca444c86e[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Fri Feb 5 10:00:42 2021 +0100
+
+    Adding the reset symbol to the end of a trace to make we have reach the end of the trace.
+
+[33mcommit 58a67d5f8fe99e5de0fc096477b0c9b0d566700f[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Thu Feb 4 11:52:30 2021 +0100
+
+    Adding the instrumentation for the first lab assignment.
+
+[33mcommit 41a38ce09a29598f0f562f3d0cc2cc24e64fec38[m
+Author: Clinton <c.s.cao@tudelft.nl>
+Date:   Mon Feb 1 17:14:58 2021 +0100
+
+    Adding package for symbolic execution + lib folder for Z3 + javadoc
+
+[33mcommit 0cc17f02231ce922e9a26ec5129077cc14cd0b6d[m
+Author: apanichella <a.panichella@tudelft.nl>
+Date:   Sun Jan 31 14:31:53 2021 +0100
+
+    Adding ranch coverage + code refactoring
+
+[33mcommit fd0b437b3d3067d794b30fa8c0a2bda14ee26d35[m
+Author: apanichella <a.panichella@tudelft.nl>
+Date:   Mon Jan 18 11:18:40 2021 +0100
+
+    Updating the readme
+
+[33mcommit 77d570201769a4cdec3f0e26c0d78ac53f9c3fc4[m
+Author: apanichella <a.panichella@tudelft.nl>
+Date:   Mon Jan 18 11:18:05 2021 +0100
+
+    First implementation for line coverage
+
+[33mcommit e9b4d2ec1f0af3f2abb8273dd0ea7c8c9ac60217[m
+Author: Annibale Panichella <a.panichella@tudelft.nl>
+Date:   Mon Jan 18 10:36:17 2021 +0100
+
+    Initial commit
