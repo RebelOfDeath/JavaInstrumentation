@@ -1,5 +1,8 @@
-=== Patching EA started for Problem17 ===
-  Population: 30 | Generations: 1000 | Mutation: 0.4
-  Operators: 4043 | Tests: 11481
-  Initial best fitness: 0.9790
-  Baseline (buggy) fitness: 0.9790
+Mode: concolic | Problem: 17 | Duration: 300s | Seed: 256 | Output: /workspace/final_results/task1/concolic/run3
+=== Fuzzing Results ===
+Mode: concolic
+Total unique branches visited: 218
+Max unique branches in a single trace: 200
+Best trace: [Q, G, D, G, B, G, F, A, T, E]
+Triggered errors (3): [error_2, error_46, error_61]
+Convergence CSVs: /workspace/final_results/task1/concolic/run3/problem17_concolic_*.csv

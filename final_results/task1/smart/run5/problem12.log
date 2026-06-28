@@ -1,41 +1,8 @@
-=== Patching EA started for Problem12 ===
-  Population: 30 | Generations: 1000 | Mutation: 0.4
-  Operators: 1110 | Tests: 641
-  Initial best fitness: 0.2886
-  Baseline (buggy) fitness: 0.2621
-  Gen 10 | Best: 0.4992 | 76s
-  Gen 20 | Best: 0.5164 | 129s
-  Gen 30 | Best: 0.5164 | 181s
-  Gen 40 | Best: 0.5320 | 234s
-  Gen 50 | Best: 0.6443 | 287s
-  Time limit reached.
-
-=== EA finished for Problem12 ===
-  Best fitness: 0.6443057722308893
-  Generations:  54
-  Patch: operator[262] == -> !=
-  Patch: operator[266] == -> >=
-  Patch: operator[296] <= -> >=
-  Patch: operator[317] < -> !=
-  Patch: operator[347] >= -> !=
-  Patch: operator[411] >= -> !=
-  Patch: operator[416] >= -> ==
-  Patch: operator[448] < -> <=
-  Patch: operator[480] < -> <=
-  Patch: operator[507] >= -> >
-  Patch: operator[510] == -> >
-  Patch: operator[527] >= -> ==
-  Patch: operator[573] == -> >=
-  Patch: operator[587] >= -> <=
-  Patch: operator[591] == -> >
-  Patch: operator[620] < -> ==
-  Patch: operator[634] >= -> <
-  Patch: operator[643] == -> >=
-  Patch: operator[645] == -> >
-  Patch: operator[650] < -> >
-  Patch: operator[708] <= -> >=
-  Patch: operator[982] == -> >=
-  Patch: operator[997] != -> >=
-  Patch: operator[1024] <= -> !=
-  Patch: operator[1066] == -> !=
-  Total operators patched: 25
+Mode: smart | Problem: 12 | Duration: 300s | Mutations per step: 5 | Seed: 7777
+=== Fuzzing Results ===
+Mode: smart
+Total unique branches visited: 213
+Max unique branches in a single trace: 162
+Best trace: [C, E, H, C, G, I, I, A, G, B, H]
+Triggered errors (0): []
+Convergence CSVs: /workspace/final_results/task1/smart/run5/problem12_smart_*.csv

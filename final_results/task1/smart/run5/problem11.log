@@ -1,24 +1,8 @@
-=== Patching EA started for Problem11 ===
-  Population: 30 | Generations: 1000 | Mutation: 0.4
-  Operators: 353 | Tests: 371
-  Initial best fitness: 0.8814
-  Baseline (buggy) fitness: 0.8410
-  Gen 10 | Best: 0.9461 | 31s
-  Gen 20 | Best: 0.9865 | 53s
-  Gen 28 | Best: 1.0000 | 70s
-  Perfect fitness at generation 29
-
-=== EA finished for Problem11 ===
-  Best fitness: 1.0
-  Generations:  29
-  Patch: operator[15] == -> >=
-  Patch: operator[72] == -> <=
-  Patch: operator[75] == -> !=
-  Patch: operator[120] == -> !=
-  Patch: operator[159] == -> !=
-  Patch: operator[170] == -> !=
-  Patch: operator[223] != -> ==
-  Patch: operator[340] != -> ==
-  Patch: operator[344] == -> <=
-  Patch: operator[350] != -> ==
-  Total operators patched: 10
+Mode: smart | Problem: 11 | Duration: 300s | Mutations per step: 5 | Seed: 7777
+=== Fuzzing Results ===
+Mode: smart
+Total unique branches visited: 305
+Max unique branches in a single trace: 163
+Best trace: [F, C, B, J, J, A, E, B, F, G, F]
+Triggered errors (18): [error_0, error_13, error_24, error_26, error_39, error_42, error_48, error_52, error_60, error_62, error_74, error_75, error_82, error_9, error_91, error_93, error_94, error_95]
+Convergence CSVs: /workspace/final_results/task1/smart/run5/problem11_smart_*.csv

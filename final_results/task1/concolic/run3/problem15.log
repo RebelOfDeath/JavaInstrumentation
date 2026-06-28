@@ -1,11 +1,8 @@
-=== Patching EA started for Problem15 ===
-  Population: 30 | Generations: 1000 | Mutation: 0.4
-  Operators: 6034 | Tests: 5636
-  Initial best fitness: 0.9744
-  Baseline (buggy) fitness: 0.9744
-  Time limit reached.
-
-=== EA finished for Problem15 ===
-  Best fitness: 0.9744499645138396
-  Generations:  4
-  Total operators patched: 0
+Mode: concolic | Problem: 15 | Duration: 300s | Seed: 256 | Output: /workspace/final_results/task1/concolic/run3
+=== Fuzzing Results ===
+Mode: concolic
+Total unique branches visited: 273
+Max unique branches in a single trace: 178
+Best trace: [A, O, L, O, G, O, O, J, I, H]
+Triggered errors (0): []
+Convergence CSVs: /workspace/final_results/task1/concolic/run3/problem15_concolic_*.csv

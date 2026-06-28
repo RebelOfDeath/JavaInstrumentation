@@ -1,50 +1,8 @@
-=== Patching EA started for Problem11 ===
-  Population: 30 | Generations: 1000 | Mutation: 0.4
-  Operators: 353 | Tests: 371
-  Initial best fitness: 0.8976
-  Baseline (buggy) fitness: 0.8410
-  Gen 10 | Best: 0.9623 | 31s
-  Gen 20 | Best: 0.9704 | 54s
-  Gen 30 | Best: 0.9973 | 74s
-  Gen 37 | Best: 1.0000 | 88s
-  Perfect fitness at generation 38
-
-=== EA finished for Problem11 ===
-  Best fitness: 1.0
-  Generations:  38
-  Patch: operator[9] == -> <
-  Patch: operator[12] == -> !=
-  Patch: operator[20] == -> >
-  Patch: operator[29] == -> !=
-  Patch: operator[44] == -> >=
-  Patch: operator[48] == -> !=
-  Patch: operator[51] == -> <
-  Patch: operator[54] == -> <=
-  Patch: operator[65] == -> !=
-  Patch: operator[68] == -> <=
-  Patch: operator[81] == -> <
-  Patch: operator[99] == -> <=
-  Patch: operator[110] == -> <
-  Patch: operator[112] == -> >
-  Patch: operator[128] == -> >=
-  Patch: operator[129] == -> >=
-  Patch: operator[137] == -> <
-  Patch: operator[152] == -> <=
-  Patch: operator[155] == -> >=
-  Patch: operator[170] == -> >
-  Patch: operator[176] == -> >
-  Patch: operator[178] == -> >
-  Patch: operator[180] == -> >=
-  Patch: operator[181] == -> <=
-  Patch: operator[223] != -> >=
-  Patch: operator[262] == -> <=
-  Patch: operator[292] == -> <=
-  Patch: operator[301] == -> <=
-  Patch: operator[307] == -> <=
-  Patch: operator[308] == -> >=
-  Patch: operator[331] == -> >=
-  Patch: operator[339] == -> <=
-  Patch: operator[340] != -> ==
-  Patch: operator[349] == -> <=
-  Patch: operator[350] != -> >=
-  Total operators patched: 35
+Mode: improved | Problem: 11 | Duration: 300s | Mutations per step: 10 | Seed: 137
+=== Fuzzing Results ===
+Mode: improved
+Total unique branches visited: 298
+Max unique branches in a single trace: 191
+Best trace: [J, F, B, F, E, G, G, B, I, J, B, B, J, E, G, G, B, I, D, B, B, I, J, B, F, J, G, J, F, G]
+Triggered errors (17): [error_0, error_24, error_26, error_39, error_42, error_48, error_52, error_60, error_62, error_74, error_75, error_82, error_9, error_91, error_93, error_94, error_95]
+Convergence CSVs: /workspace/final_results/task3/improved/run2/problem11_improved_*.csv

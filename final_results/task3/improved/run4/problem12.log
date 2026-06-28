@@ -1,48 +1,8 @@
-=== Patching EA started for Problem12 ===
-  Population: 30 | Generations: 1000 | Mutation: 0.4
-  Operators: 1110 | Tests: 641
-  Initial best fitness: 0.3853
-  Baseline (buggy) fitness: 0.2621
-  Gen 10 | Best: 0.3853 | 76s
-  Gen 20 | Best: 0.5086 | 141s
-  Gen 30 | Best: 0.5086 | 199s
-  Gen 40 | Best: 0.5086 | 252s
-  Time limit reached.
-
-=== EA finished for Problem12 ===
-  Best fitness: 0.5085803432137286
-  Generations:  50
-  Patch: operator[7] == -> >
-  Patch: operator[15] == -> !=
-  Patch: operator[40] < -> !=
-  Patch: operator[49] == -> >=
-  Patch: operator[92] < -> <=
-  Patch: operator[93] == -> >
-  Patch: operator[117] == -> <
-  Patch: operator[119] == -> <=
-  Patch: operator[139] == -> >=
-  Patch: operator[199] == -> >=
-  Patch: operator[205] == -> >
-  Patch: operator[239] <= -> ==
-  Patch: operator[288] == -> >=
-  Patch: operator[324] < -> !=
-  Patch: operator[395] == -> >=
-  Patch: operator[419] < -> ==
-  Patch: operator[489] == -> >
-  Patch: operator[490] < -> >=
-  Patch: operator[500] >= -> <=
-  Patch: operator[516] == -> <=
-  Patch: operator[600] < -> >
-  Patch: operator[607] >= -> !=
-  Patch: operator[652] == -> !=
-  Patch: operator[793] < -> ==
-  Patch: operator[831] == -> !=
-  Patch: operator[858] >= -> >
-  Patch: operator[873] < -> !=
-  Patch: operator[981] >= -> <=
-  Patch: operator[997] != -> <=
-  Patch: operator[1023] <= -> <
-  Patch: operator[1069] == -> >
-  Patch: operator[1082] < -> <=
-  Patch: operator[1095] < -> !=
-  Total operators patched: 33
+Mode: improved | Problem: 12 | Duration: 300s | Mutations per step: 10 | Seed: 1024
+=== Fuzzing Results ===
+Mode: improved
+Total unique branches visited: 322
+Max unique branches in a single trace: 231
+Best trace: [B, E, E, G, J, I, B, I, D, G, J, A, I, J, G, E, H, I, E, D, G, A, H, A, C, A, D, I, B, E]
+Triggered errors (4): [error_25, error_65, error_74, error_77]
+Convergence CSVs: /workspace/final_results/task3/improved/run4/problem12_improved_*.csv

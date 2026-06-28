@@ -1,36 +1,8 @@
-=== Patching EA started for Problem11 ===
-  Population: 30 | Generations: 1000 | Mutation: 0.4
-  Operators: 353 | Tests: 371
-  Initial best fitness: 0.8410
-  Baseline (buggy) fitness: 0.8410
-  Gen 10 | Best: 0.8895 | 34s
-  Gen 20 | Best: 0.8895 | 60s
-  Gen 30 | Best: 0.8895 | 82s
-  Gen 35 | Best: 1.0000 | 93s
-  Perfect fitness at generation 36
-
-=== EA finished for Problem11 ===
-  Best fitness: 1.0
-  Generations:  36
-  Patch: operator[40] == -> >
-  Patch: operator[46] == -> !=
-  Patch: operator[58] == -> <
-  Patch: operator[66] == -> <
-  Patch: operator[104] == -> <
-  Patch: operator[118] == -> >=
-  Patch: operator[126] == -> !=
-  Patch: operator[133] == -> >=
-  Patch: operator[180] == -> >
-  Patch: operator[215] == -> !=
-  Patch: operator[223] != -> <=
-  Patch: operator[252] == -> <=
-  Patch: operator[265] == -> >=
-  Patch: operator[294] == -> >=
-  Patch: operator[309] == -> >=
-  Patch: operator[310] == -> <=
-  Patch: operator[312] == -> <=
-  Patch: operator[328] == -> <=
-  Patch: operator[340] != -> ==
-  Patch: operator[343] == -> >=
-  Patch: operator[350] != -> <=
-  Total operators patched: 21
+Mode: random | Problem: 11 | Duration: 300s | Mutations per step: 5 | Seed: 256
+=== Fuzzing Results ===
+Mode: random
+Total unique branches visited: 306
+Max unique branches in a single trace: 164
+Best trace: [F, J, E, I, B, I, I, B, D, C]
+Triggered errors (18): [error_0, error_13, error_24, error_26, error_39, error_42, error_48, error_52, error_60, error_62, error_74, error_75, error_82, error_9, error_91, error_93, error_94, error_95]
+Convergence CSVs: /workspace/final_results/task1/random/run3/problem11_random_*.csv

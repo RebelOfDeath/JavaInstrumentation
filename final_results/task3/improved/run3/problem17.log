@@ -1,5 +1,8 @@
-=== Patching EA started for Problem17 ===
-  Population: 30 | Generations: 1000 | Mutation: 0.4
-  Operators: 4043 | Tests: 11481
-  Initial best fitness: 0.9790
-  Baseline (buggy) fitness: 0.9790
+Mode: improved | Problem: 17 | Duration: 300s | Mutations per step: 10 | Seed: 256
+=== Fuzzing Results ===
+Mode: improved
+Total unique branches visited: 2550
+Max unique branches in a single trace: 427
+Best trace: [C, B, K, G, B, A, B, M, G, L, F, S, B, C, J, T, A, C, B, B, F, C, F, H, S, T, I, I, G, D]
+Triggered errors (25): [error_0, error_11, error_19, error_2, error_22, error_23, error_25, error_31, error_35, error_46, error_50, error_53, error_56, error_61, error_66, error_69, error_72, error_76, error_78, error_79, error_85, error_86, error_96, error_97, error_99]
+Convergence CSVs: /workspace/final_results/task3/improved/run3/problem17_improved_*.csv

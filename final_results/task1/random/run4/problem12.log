@@ -1,23 +1,8 @@
-=== Patching EA started for Problem12 ===
-  Population: 30 | Generations: 1000 | Mutation: 0.4
-  Operators: 1110 | Tests: 641
-  Initial best fitness: 0.2621
-  Baseline (buggy) fitness: 0.2621
-  Gen 10 | Best: 0.4555 | 86s
-  Gen 20 | Best: 0.4555 | 142s
-  Gen 30 | Best: 0.4571 | 207s
-  Gen 40 | Best: 0.4571 | 277s
-  Time limit reached.
-
-=== EA finished for Problem12 ===
-  Best fitness: 0.45709828393135726
-  Generations:  45
-  Patch: operator[127] == -> >
-  Patch: operator[307] == -> <=
-  Patch: operator[651] >= -> !=
-  Patch: operator[692] <= -> ==
-  Patch: operator[793] < -> !=
-  Patch: operator[924] == -> <
-  Patch: operator[975] == -> <=
-  Patch: operator[999] >= -> <
-  Total operators patched: 8
+Mode: random | Problem: 12 | Duration: 300s | Mutations per step: 5 | Seed: 1024
+=== Fuzzing Results ===
+Mode: random
+Total unique branches visited: 235
+Max unique branches in a single trace: 173
+Best trace: [E, G, E, C, F, J, A, B, J, A]
+Triggered errors (0): []
+Convergence CSVs: /workspace/final_results/task1/random/run4/problem12_random_*.csv

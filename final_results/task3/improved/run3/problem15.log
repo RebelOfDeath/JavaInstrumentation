@@ -1,11 +1,8 @@
-=== Patching EA started for Problem15 ===
-  Population: 30 | Generations: 1000 | Mutation: 0.4
-  Operators: 6034 | Tests: 5636
-  Initial best fitness: 0.9744
-  Baseline (buggy) fitness: 0.9744
-  Time limit reached.
-
-=== EA finished for Problem15 ===
-  Best fitness: 0.9744499645138396
-  Generations:  5
-  Total operators patched: 0
+Mode: improved | Problem: 15 | Duration: 300s | Mutations per step: 10 | Seed: 256
+=== Fuzzing Results ===
+Mode: improved
+Total unique branches visited: 1355
+Max unique branches in a single trace: 276
+Best trace: [A, L, D, O, A, I, L, L, F, I, N, I, K, C, A, A, O, L, L, N, F, I, N, A, J, A, L, K, N, D]
+Triggered errors (9): [error_21, error_28, error_33, error_35, error_4, error_46, error_60, error_74, error_94]
+Convergence CSVs: /workspace/final_results/task3/improved/run3/problem15_improved_*.csv

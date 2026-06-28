@@ -1,26 +1,8 @@
-=== Patching EA started for Problem11 ===
-  Population: 30 | Generations: 1000 | Mutation: 0.4
-  Operators: 353 | Tests: 371
-  Initial best fitness: 0.8410
-  Baseline (buggy) fitness: 0.8410
-  Gen 10 | Best: 0.8410 | 31s
-  Gen 20 | Best: 0.9461 | 52s
-  Gen 26 | Best: 1.0000 | 65s
-  Perfect fitness at generation 27
-
-=== EA finished for Problem11 ===
-  Best fitness: 1.0
-  Generations:  27
-  Patch: operator[3] == -> >
-  Patch: operator[159] == -> <=
-  Patch: operator[181] == -> <=
-  Patch: operator[200] == -> <
-  Patch: operator[210] == -> <
-  Patch: operator[220] == -> <=
-  Patch: operator[223] != -> >=
-  Patch: operator[266] == -> <=
-  Patch: operator[268] == -> >=
-  Patch: operator[325] == -> >=
-  Patch: operator[340] != -> <=
-  Patch: operator[350] != -> ==
-  Total operators patched: 12
+Mode: concolic | Problem: 11 | Duration: 300s | Seed: 42 | Output: /workspace/final_results/task1/concolic/run1
+=== Fuzzing Results ===
+Mode: concolic
+Total unique branches visited: 299
+Max unique branches in a single trace: 125
+Best trace: [J, J, A, J, A, J, A, D, B, E]
+Triggered errors (17): [error_0, error_24, error_26, error_39, error_42, error_48, error_52, error_60, error_62, error_74, error_75, error_82, error_9, error_91, error_93, error_94, error_95]
+Convergence CSVs: /workspace/final_results/task1/concolic/run1/problem11_concolic_*.csv

@@ -1,51 +1,8 @@
-=== Patching EA started for Problem12 ===
-  Population: 30 | Generations: 1000 | Mutation: 0.4
-  Operators: 1110 | Tests: 641
-  Initial best fitness: 0.2621
-  Baseline (buggy) fitness: 0.2621
-  Gen 10 | Best: 0.5367 | 82s
-  Gen 20 | Best: 0.5725 | 139s
-  Gen 30 | Best: 0.7254 | 205s
-  Gen 40 | Best: 0.7254 | 277s
-  Time limit reached.
-
-=== EA finished for Problem12 ===
-  Best fitness: 0.7254290171606864
-  Generations:  45
-  Patch: operator[9] == -> !=
-  Patch: operator[120] == -> >
-  Patch: operator[190] >= -> !=
-  Patch: operator[213] == -> !=
-  Patch: operator[251] == -> >=
-  Patch: operator[272] == -> >=
-  Patch: operator[289] <= -> !=
-  Patch: operator[290] != -> ==
-  Patch: operator[319] < -> !=
-  Patch: operator[322] >= -> >
-  Patch: operator[342] < -> >
-  Patch: operator[346] < -> >=
-  Patch: operator[350] == -> >
-  Patch: operator[466] < -> >
-  Patch: operator[501] == -> >
-  Patch: operator[558] >= -> !=
-  Patch: operator[651] >= -> ==
-  Patch: operator[691] <= -> <
-  Patch: operator[832] > -> !=
-  Patch: operator[867] == -> <
-  Patch: operator[880] == -> <=
-  Patch: operator[882] >= -> !=
-  Patch: operator[938] < -> <=
-  Patch: operator[948] >= -> ==
-  Patch: operator[962] < -> !=
-  Patch: operator[972] >= -> ==
-  Patch: operator[984] >= -> !=
-  Patch: operator[988] >= -> >
-  Patch: operator[993] >= -> >
-  Patch: operator[997] != -> >=
-  Patch: operator[998] < -> !=
-  Patch: operator[1019] < -> !=
-  Patch: operator[1054] == -> <=
-  Patch: operator[1061] == -> >
-  Patch: operator[1062] < -> <=
-  Patch: operator[1081] >= -> >
-  Total operators patched: 36
+Mode: concolic | Problem: 12 | Duration: 300s | Seed: 1024 | Output: /workspace/final_results/task1/concolic/run4
+=== Fuzzing Results ===
+Mode: concolic
+Total unique branches visited: 206
+Max unique branches in a single trace: 121
+Best trace: [J, G, H, E, A, H, D, F, H, C]
+Triggered errors (0): []
+Convergence CSVs: /workspace/final_results/task1/concolic/run4/problem12_concolic_*.csv

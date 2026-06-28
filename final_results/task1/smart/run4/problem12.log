@@ -1,58 +1,8 @@
-=== Patching EA started for Problem12 ===
-  Population: 30 | Generations: 1000 | Mutation: 0.4
-  Operators: 1110 | Tests: 641
-  Initial best fitness: 0.2621
-  Baseline (buggy) fitness: 0.2621
-  Gen 10 | Best: 0.4009 | 84s
-  Gen 20 | Best: 0.4134 | 145s
-  Gen 30 | Best: 0.4165 | 216s
-  Gen 40 | Best: 0.4212 | 292s
-  Time limit reached.
-
-=== EA finished for Problem12 ===
-  Best fitness: 0.42121684867394693
-  Generations:  42
-  Patch: operator[4] == -> >
-  Patch: operator[12] == -> >
-  Patch: operator[89] >= -> <
-  Patch: operator[97] == -> <
-  Patch: operator[106] < -> !=
-  Patch: operator[129] == -> <=
-  Patch: operator[167] == -> !=
-  Patch: operator[187] == -> >
-  Patch: operator[197] < -> >=
-  Patch: operator[204] == -> !=
-  Patch: operator[222] == -> !=
-  Patch: operator[226] == -> >
-  Patch: operator[271] <= -> ==
-  Patch: operator[275] <= -> >
-  Patch: operator[296] <= -> ==
-  Patch: operator[307] == -> !=
-  Patch: operator[357] >= -> <
-  Patch: operator[363] >= -> <
-  Patch: operator[366] == -> >
-  Patch: operator[371] < -> <=
-  Patch: operator[374] <= -> >=
-  Patch: operator[379] == -> >
-  Patch: operator[387] >= -> <
-  Patch: operator[531] == -> >
-  Patch: operator[534] < -> !=
-  Patch: operator[560] == -> >=
-  Patch: operator[597] >= -> >
-  Patch: operator[652] == -> >
-  Patch: operator[653] == -> <
-  Patch: operator[675] == -> >=
-  Patch: operator[676] == -> >=
-  Patch: operator[684] <= -> >
-  Patch: operator[694] <= -> <
-  Patch: operator[703] == -> !=
-  Patch: operator[715] == -> !=
-  Patch: operator[716] == -> !=
-  Patch: operator[729] <= -> >=
-  Patch: operator[750] <= -> >
-  Patch: operator[782] == -> >=
-  Patch: operator[851] >= -> !=
-  Patch: operator[1011] == -> <
-  Patch: operator[1081] >= -> >
-  Patch: operator[1085] >= -> !=
-  Total operators patched: 43
+Mode: smart | Problem: 12 | Duration: 300s | Mutations per step: 5 | Seed: 1024
+=== Fuzzing Results ===
+Mode: smart
+Total unique branches visited: 224
+Max unique branches in a single trace: 167
+Best trace: [E, G, E, C, F, A, G, H, E, F, B]
+Triggered errors (0): []
+Convergence CSVs: /workspace/final_results/task1/smart/run4/problem12_smart_*.csv

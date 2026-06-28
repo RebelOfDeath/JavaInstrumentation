@@ -1,17 +1,8 @@
-=== Patching EA started for Problem12 ===
-  Population: 30 | Generations: 1000 | Mutation: 0.4
-  Operators: 1110 | Tests: 641
-  Initial best fitness: 0.2621
-  Baseline (buggy) fitness: 0.2621
-  Gen 10 | Best: 0.5554 | 85s
-  Gen 20 | Best: 0.5554 | 145s
-  Gen 30 | Best: 0.5554 | 204s
-  Gen 40 | Best: 0.5554 | 262s
-  Time limit reached.
-
-=== EA finished for Problem12 ===
-  Best fitness: 0.5553822152886115
-  Generations:  48
-  Patch: operator[645] == -> >
-  Patch: operator[1090] == -> >=
-  Total operators patched: 2
+Mode: smart | Problem: 12 | Duration: 300s | Mutations per step: 5 | Seed: 42
+=== Fuzzing Results ===
+Mode: smart
+Total unique branches visited: 239
+Max unique branches in a single trace: 168
+Best trace: [H, D, E, G, D, C, I, D, A, F, H]
+Triggered errors (0): []
+Convergence CSVs: /workspace/final_results/task3/smart/run1/problem12_smart_*.csv

@@ -1,11 +1,8 @@
-=== Patching EA started for Problem15 ===
-  Population: 30 | Generations: 1000 | Mutation: 0.4
-  Operators: 6034 | Tests: 5636
-  Initial best fitness: 0.9744
-  Baseline (buggy) fitness: 0.9744
-  Time limit reached.
-
-=== EA finished for Problem15 ===
-  Best fitness: 0.9744499645138396
-  Generations:  5
-  Total operators patched: 0
+Mode: smart | Problem: 15 | Duration: 300s | Mutations per step: 5 | Seed: 42
+=== Fuzzing Results ===
+Mode: smart
+Total unique branches visited: 1762
+Max unique branches in a single trace: 242
+Best trace: [B, D, N, I, C, K, C, G, D, I, A]
+Triggered errors (11): [error_15, error_27, error_34, error_54, error_60, error_72, error_76, error_89, error_90, error_93, error_95]
+Convergence CSVs: /workspace/final_results/task1/smart/run1/problem15_smart_*.csv

@@ -1,70 +1,8 @@
-=== Patching EA started for Problem12 ===
-  Population: 30 | Generations: 1000 | Mutation: 0.4
-  Operators: 1110 | Tests: 641
-  Initial best fitness: 0.3027
-  Baseline (buggy) fitness: 0.2621
-  Gen 10 | Best: 0.3229 | 76s
-  Gen 20 | Best: 0.3885 | 132s
-  Gen 30 | Best: 0.3963 | 185s
-  Gen 40 | Best: 0.3963 | 237s
-  Gen 50 | Best: 0.4150 | 290s
-  Time limit reached.
-
-=== EA finished for Problem12 ===
-  Best fitness: 0.41497659906396256
-  Generations:  53
-  Patch: operator[1] == -> >
-  Patch: operator[9] == -> <
-  Patch: operator[52] == -> >=
-  Patch: operator[71] == -> >=
-  Patch: operator[74] >= -> <
-  Patch: operator[99] >= -> <=
-  Patch: operator[101] == -> >
-  Patch: operator[118] == -> <=
-  Patch: operator[179] == -> <=
-  Patch: operator[190] >= -> ==
-  Patch: operator[207] == -> >=
-  Patch: operator[265] <= -> !=
-  Patch: operator[290] != -> >=
-  Patch: operator[294] == -> >
-  Patch: operator[323] == -> <=
-  Patch: operator[383] >= -> >
-  Patch: operator[408] < -> ==
-  Patch: operator[409] >= -> <
-  Patch: operator[412] == -> !=
-  Patch: operator[434] == -> >
-  Patch: operator[463] == -> <=
-  Patch: operator[464] < -> >=
-  Patch: operator[477] == -> !=
-  Patch: operator[504] < -> >=
-  Patch: operator[506] < -> ==
-  Patch: operator[587] >= -> <
-  Patch: operator[619] == -> !=
-  Patch: operator[635] == -> <
-  Patch: operator[638] < -> ==
-  Patch: operator[639] >= -> <=
-  Patch: operator[659] == -> >=
-  Patch: operator[691] <= -> <
-  Patch: operator[697] != -> <=
-  Patch: operator[759] >= -> >
-  Patch: operator[777] >= -> >
-  Patch: operator[861] >= -> !=
-  Patch: operator[872] >= -> !=
-  Patch: operator[883] == -> <
-  Patch: operator[884] < -> ==
-  Patch: operator[889] == -> <=
-  Patch: operator[907] >= -> ==
-  Patch: operator[945] < -> >
-  Patch: operator[951] == -> >
-  Patch: operator[953] == -> >=
-  Patch: operator[985] == -> <
-  Patch: operator[1008] < -> >
-  Patch: operator[1017] < -> >=
-  Patch: operator[1035] <= -> !=
-  Patch: operator[1046] == -> >=
-  Patch: operator[1052] < -> ==
-  Patch: operator[1066] == -> >
-  Patch: operator[1073] < -> <=
-  Patch: operator[1087] == -> >=
-  Patch: operator[1095] < -> <=
-  Total operators patched: 54
+Mode: smart | Problem: 12 | Duration: 300s | Mutations per step: 5 | Seed: 42
+=== Fuzzing Results ===
+Mode: smart
+Total unique branches visited: 239
+Max unique branches in a single trace: 168
+Best trace: [H, D, E, G, D, C, I, D, A, F, H]
+Triggered errors (0): []
+Convergence CSVs: /workspace/final_results/task1/smart/run1/problem12_smart_*.csv
